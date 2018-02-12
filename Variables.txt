@@ -66,6 +66,7 @@ txt_CapellidoAutor
 txt_CemailAutor
 txt_CtelefonoAutor
 txt_CsedeAutor
+txt_Cnacionalidad
 txt_CcantidadLibrosPubAutor
 txt_CaunVivoAutor
 
@@ -75,6 +76,7 @@ txt_IapellidoAutor
 txt_IemailAutor
 txt_ItelefonoAutor
 txt_IsedeAutor
+txt_Inacionalidad
 txt_IcantidadLibrosPubAutor
 txt_IaunVivoAutor
 #################################################################

@@ -105,7 +105,7 @@ public class MasterClass {
                 Estudiante tempAnterior = new Estudiante();
                 obTmpEstud=obInicialEstud;
                 
-                while(obTmpEstud.getSiguente() != obColaEstud){
+                while(obTmpEstud.getSiguente() != obInicialEstud){
                     if(nombre.equalsIgnoreCase(obTmpEstud.getNombre())){
                        tempAnterior=obTmpEstud.getAnterior();
                        obTmpEstud=obTmpEstud.getSiguente();
@@ -227,7 +227,7 @@ public class MasterClass {
                 Funcionario tempAnterior = new Funcionario();
                 obTmpFun=obInicialFun;
                 
-                while(obTmpFun.getSiguente() != obColaFun){
+                while(obTmpFun.getSiguente() != obInicialFun){
                     if(nombre.equalsIgnoreCase(obTmpFun.getNombre())){
                        tempAnterior=obTmpFun.getAnterior();
                        obTmpFun=obTmpFun.getSiguente();
@@ -245,7 +245,7 @@ public class MasterClass {
                String departamentos){
         obTmpFun=obInicialFun;
         do{
-            if(nombre.equalsIgnoreCase(obTmpEstud.getNombre())){
+            if(nombre.equalsIgnoreCase(obTmpFun.getNombre())){
                 obTmpFun.setApellido(apellido);
                 obTmpFun.setDireccionCorreo(direccionCorreo);
                 obTmpFun.setTelefono(telefono);
@@ -348,7 +348,7 @@ public class MasterClass {
                 Profesor tempAnterior = new Profesor();
                 obTmpProf=obInicialProf;
                 
-                while(obTmpProf.getSiguente() != obColaProf){
+                while(obTmpProf.getSiguente() != obInicialProf){
                     if(nombre.equalsIgnoreCase(obTmpProf.getNombre())){
                        tempAnterior=obTmpProf.getAnterior();
                        obTmpProf=obTmpProf.getSiguente();
@@ -470,7 +470,7 @@ public class MasterClass {
                 Autor tempAnterior = new Autor();
                 obTmpAut=obInicialAut;
                 
-                while(obTmpAut.getSiguente() != obColaAut){
+                while(obTmpAut.getSiguente() != obInicialAut){
                     if(nombre.equalsIgnoreCase(obTmpAut.getNombre())){
                        tempAnterior=obTmpAut.getAnterior();
                        obTmpAut=obTmpAut.getSiguente();
@@ -488,8 +488,7 @@ public class MasterClass {
             String cantidadLibrosPublicados){
         obTmpAut=obInicialAut;
         do{
-            if(nombre.equalsIgnoreCase(obTmpEstud.getNombre())){
-                obTmpAut.setNombre(nombre);
+            if(nombre.equalsIgnoreCase(obTmpAut.getNombre())){
                 obTmpAut.setApellido(apellido);
                 obTmpAut.setDireccionCorreo(direccionCorreo);
                 obTmpAut.setTelefono(telefono);
@@ -499,7 +498,7 @@ public class MasterClass {
                 obTmpAut.setCantidadLibrosPublicados(cantidadLibrosPublicados);
                 break;
             }
-            obTmpFun=obTmpFun.getSiguente();
+            obTmpAut=obTmpAut.getSiguente();
         }while(obTmpAut != obInicialAut);
     }
     public Autor buscarA(String buscar){
@@ -588,8 +587,8 @@ public class MasterClass {
                 Libro tempAnterior = new Libro();
                 obTmpLib=obInicialLib;
                 
-                while(obTmpLib.getSiguente() != obColaLib){
-                    if(nombreLibro.equalsIgnoreCase(obTmpProf.getNombre())){
+                while(obTmpLib.getSiguente() != obInicialLib){
+                    if(nombreLibro.equalsIgnoreCase(obTmpLib.getNombreLibro())){
                        tempAnterior=obTmpLib.getAnterior();
                        obTmpLib=obTmpLib.getSiguente();
                        obTmpLib.setAnterior(tempAnterior);
@@ -601,7 +600,7 @@ public class MasterClass {
             }
         }
     }
-    public void modificarP(String nombreLibro, String autor, String fechaPublicacion, 
+    public void modificarL(String nombreLibro, String autor, String fechaPublicacion, 
             String editorial, String cantidadLibrosDisponibles){
         obTmpLib=obInicialLib;
         do{

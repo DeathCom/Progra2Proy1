@@ -1,16 +1,38 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Principal;
-
-/**
- *
- * @author cperezme
- */
+import Clases.Funcionario;
+import Clases.MasterClass;
+import javax.swing.JOptionPane;
 public class FormFuncionario extends javax.swing.JFrame {
+    MasterClass datos = new MasterClass();
+    public void limpiar(){
+        txt_CnombreFuncionario.setText("");
+        txt_CapellidoFuncionario.setText("");
+        txt_CemailFuncionario.setText("");
+        txt_CtelefonoFuncionario.setText("");
+        txt_CsedeFuncionario.setText("");
+        txt_CnumeroFuncionario.setText("");
+        txt_CpuestoFuncionario.setText("");
+        txt_CdepartamentoFuncionario.setText("");
 
+        txt_InombreFuncionario.setText("");
+        txt_IapellidoFuncionario.setText("");
+        txt_IemailFuncionario.setText("");
+        txt_ItelefonoFuncionario.setText("");
+        txt_IsedeFuncionario.setText("");
+        txt_InumeroFuncionario.setText("");
+        txt_IpuestoFuncionario.setText("");
+        txt_IdepartamentoFuncionario.setText("");
+    }
+    public void imprimir(Funcionario arg){
+        txt_CnombreFuncionario.setText(arg.getNombre());
+        txt_CapellidoFuncionario.setText(arg.getApellido());
+        txt_CemailFuncionario.setText(arg.getDireccionCorreo());
+        txt_CtelefonoFuncionario.setText(arg.getTelefono());
+        txt_CsedeFuncionario.setText(arg.getSede());
+        txt_CnumeroFuncionario.setText(arg.getNumeroEmpleado());
+        txt_CpuestoFuncionario.setText(arg.getPuesto());
+        txt_CdepartamentoFuncionario.setText(arg.getDepartamento());
+    }
     /**
      * Creates new form Funcionario
      */
@@ -51,8 +73,10 @@ public class FormFuncionario extends javax.swing.JFrame {
         btn_volver3 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         txt_CLibosAsignados = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btn_primero = new javax.swing.JButton();
+        btn_anterior = new javax.swing.JButton();
+        btn_siguiente = new javax.swing.JButton();
+        btn_ultimo = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         txt_InombreFuncionario = new javax.swing.JTextField();
@@ -93,10 +117,25 @@ public class FormFuncionario extends javax.swing.JFrame {
         jLabel23.setText("Departamento");
 
         btn_buscarFuncionario.setText("Buscar");
+        btn_buscarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscarFuncionarioActionPerformed(evt);
+            }
+        });
 
         btn_editarFuncionario.setText("Editar");
+        btn_editarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editarFuncionarioActionPerformed(evt);
+            }
+        });
 
         btn_elimiarFuncionario.setText("Eliminar");
+        btn_elimiarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_elimiarFuncionarioActionPerformed(evt);
+            }
+        });
 
         btn_volver3.setText("volver");
         btn_volver3.addActionListener(new java.awt.event.ActionListener() {
@@ -107,9 +146,33 @@ public class FormFuncionario extends javax.swing.JFrame {
 
         jLabel9.setText("Libros Asignados");
 
-        jButton1.setText("<");
+        btn_primero.setText("|<");
+        btn_primero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_primeroActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText(">");
+        btn_anterior.setText("<");
+        btn_anterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_anteriorActionPerformed(evt);
+            }
+        });
+
+        btn_siguiente.setText(">");
+        btn_siguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_siguienteActionPerformed(evt);
+            }
+        });
+
+        btn_ultimo.setText(">|");
+        btn_ultimo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ultimoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -133,14 +196,14 @@ public class FormFuncionario extends javax.swing.JFrame {
                             .addComponent(txt_CtelefonoFuncionario)
                             .addComponent(txt_CsedeFuncionario)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)
+                        .addComponent(btn_primero)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_buscarFuncionario)
+                        .addComponent(btn_anterior)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_editarFuncionario)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_siguiente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_ultimo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_elimiarFuncionario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_volver3))
@@ -154,7 +217,10 @@ public class FormFuncionario extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(txt_CLibosAsignados, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                                .addComponent(btn_buscarFuncionario)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btn_editarFuncionario))
                             .addComponent(txt_CnumeroFuncionario)
                             .addComponent(txt_CpuestoFuncionario)
                             .addComponent(txt_CdepartamentoFuncionario))))
@@ -195,18 +261,26 @@ public class FormFuncionario extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_CdepartamentoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel23))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txt_CLibosAsignados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(txt_CLibosAsignados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_editarFuncionario)
+                            .addComponent(btn_buscarFuncionario))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton1)
-                        .addComponent(jButton2))
+                        .addComponent(btn_primero)
+                        .addComponent(btn_siguiente)
+                        .addComponent(btn_anterior)
+                        .addComponent(btn_ultimo))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btn_buscarFuncionario)
-                        .addComponent(btn_editarFuncionario)
                         .addComponent(btn_elimiarFuncionario)
                         .addComponent(btn_volver3)))
                 .addContainerGap())
@@ -231,6 +305,11 @@ public class FormFuncionario extends javax.swing.JFrame {
         jLabel31.setText("Departamento");
 
         bntGuardarFuncionario.setText("Guardar");
+        bntGuardarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntGuardarFuncionarioActionPerformed(evt);
+            }
+        });
 
         btn_volver4.setText("volver");
         btn_volver4.addActionListener(new java.awt.event.ActionListener() {
@@ -352,6 +431,82 @@ public class FormFuncionario extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_volver4ActionPerformed
 
+    private void btn_primeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_primeroActionPerformed
+        if(datos.primeroF()==null){
+            JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
+        }else{
+            imprimir(datos.primeroF());
+        }
+    }//GEN-LAST:event_btn_primeroActionPerformed
+
+    private void btn_anteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_anteriorActionPerformed
+        if(datos.primeroF()==null){
+            JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
+        }else{
+            imprimir(datos.anteriorF());
+        }
+    }//GEN-LAST:event_btn_anteriorActionPerformed
+
+    private void btn_siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_siguienteActionPerformed
+        if(datos.primeroF()==null){
+            JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
+        }else{
+            imprimir(datos.siguenteF());
+        }
+    }//GEN-LAST:event_btn_siguienteActionPerformed
+
+    private void btn_ultimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ultimoActionPerformed
+        if(datos.primeroF()==null){
+            JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
+        }else{
+            imprimir(datos.ultimoF());
+        }
+    }//GEN-LAST:event_btn_ultimoActionPerformed
+
+    private void btn_buscarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarFuncionarioActionPerformed
+        if(datos.primeroF()==null){
+            JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
+        }else{
+            imprimir(datos.buscarF(txt_CnombreFuncionario.getText()));
+        }
+    }//GEN-LAST:event_btn_buscarFuncionarioActionPerformed
+
+    private void btn_elimiarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_elimiarFuncionarioActionPerformed
+        if(datos.primeroF()==null){
+            JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
+        }else{
+            datos.eliminarF(txt_CnombreFuncionario.getText());
+        }
+        limpiar();
+    }//GEN-LAST:event_btn_elimiarFuncionarioActionPerformed
+
+    private void btn_editarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarFuncionarioActionPerformed
+        if(datos.primeroF()==null){
+            JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
+        }else{
+            datos.modificarF(txt_CnombreFuncionario.getText(),txt_CapellidoFuncionario.getText(),
+                    txt_CemailFuncionario.getText(),txt_CtelefonoFuncionario.getText(),txt_CsedeFuncionario.getText(), 
+                    txt_CnumeroFuncionario.getText(),txt_CpuestoFuncionario.getText(), 
+                    txt_CdepartamentoFuncionario.getText());
+        }
+        limpiar();
+    }//GEN-LAST:event_btn_editarFuncionarioActionPerformed
+
+    private void bntGuardarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntGuardarFuncionarioActionPerformed
+        if(txt_InombreFuncionario.getText().isEmpty() || txt_IapellidoFuncionario.getText().isEmpty()
+                || txt_IemailFuncionario.getText().isEmpty() || txt_ItelefonoFuncionario.getText().isEmpty()
+                || txt_IsedeFuncionario.getText().isEmpty() || txt_InumeroFuncionario.getText().isEmpty()
+                || txt_IpuestoFuncionario.getText().isEmpty()|| txt_IdepartamentoFuncionario.getText().isEmpty()){
+            JOptionPane.showMessageDialog(rootPane, "Debe llenar todos los campos");
+        }else{
+            datos.guardarF(txt_InombreFuncionario.getText(), txt_IapellidoFuncionario.getText(), 
+                    txt_IemailFuncionario.getText(), txt_ItelefonoFuncionario.getText(),
+                    txt_IsedeFuncionario.getText(), txt_InumeroFuncionario.getText(),
+                    txt_IpuestoFuncionario.getText(), txt_IdepartamentoFuncionario.getText());
+        }
+        limpiar();
+    }//GEN-LAST:event_bntGuardarFuncionarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -390,13 +545,15 @@ public class FormFuncionario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntGuardarFuncionario;
+    private javax.swing.JButton btn_anterior;
     private javax.swing.JButton btn_buscarFuncionario;
     private javax.swing.JButton btn_editarFuncionario;
     private javax.swing.JButton btn_elimiarFuncionario;
+    private javax.swing.JButton btn_primero;
+    private javax.swing.JButton btn_siguiente;
+    private javax.swing.JButton btn_ultimo;
     private javax.swing.JButton btn_volver3;
     private javax.swing.JButton btn_volver4;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;

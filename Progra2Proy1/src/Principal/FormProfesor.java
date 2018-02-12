@@ -1,16 +1,36 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Principal;
-
-/**
- *
- * @author cperezme
- */
+import Clases.Profesor;
+import Clases.MasterClass;
+import javax.swing.JOptionPane;
 public class FormProfesor extends javax.swing.JFrame {
+    MasterClass datos = new MasterClass();
+    public void limpiar(){
+        txt_CnombreProfesor.setText("");
+        txt_CapellidoProfesor.setText("");
+        txt_CemailProfesor.setText("");
+        txt_CtelefonoProfesor.setText("");
+        txt_CsedeProfesor.setText("");
+        txt_CcodProfesor.setText("");
+        txt_CcantidProfesor.setText("");
 
+        txt_InombreProfesor.setText("");
+        txt_IapellidoProfesor.setText("");
+        txt_IemailProfesor.setText("");
+        txt_ItelefonoProfesor.setText("");
+        txt_IsedeProfesor.setText("");
+        txt_IcodProfesor.setText("");
+        //txt_IcantidProfesor.setText("");
+        txt_IcantidProfesor.setValue(0);
+    }
+    public void imprimir(Profesor arg){
+        txt_CnombreProfesor.setText(arg.getNombre());
+        txt_CapellidoProfesor.setText(arg.getApellido());
+        txt_CemailProfesor.setText(arg.getDireccionCorreo());
+        txt_CtelefonoProfesor.setText(arg.getTelefono());
+        txt_CsedeProfesor.setText(arg.getSede());
+        txt_CcodProfesor.setText(arg.getCodigoMarca());
+        txt_CcantidProfesor.setText(arg.getCantidadCursosqueImparte());
+    }
     /**
      * Creates new form Profesor
      */
@@ -30,25 +50,29 @@ public class FormProfesor extends javax.swing.JFrame {
         jTabbedPane4 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
-        jTextField16 = new javax.swing.JTextField();
-        jTextField17 = new javax.swing.JTextField();
+        txt_CnombreProfesor = new javax.swing.JTextField();
+        txt_CapellidoProfesor = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jTextField18 = new javax.swing.JTextField();
-        jTextField19 = new javax.swing.JTextField();
+        txt_CemailProfesor = new javax.swing.JTextField();
+        txt_CtelefonoProfesor = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        jTextField20 = new javax.swing.JTextField();
+        txt_CcodProfesor = new javax.swing.JTextField();
         btn_buscarProfesor = new javax.swing.JButton();
         btn_editarProfesor = new javax.swing.JButton();
         btn_elimiarProfesor = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        txt_CcantidProfesor = new javax.swing.JTextField();
         btn_volver4 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         txt_CLibosAsignados = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btn_primero1 = new javax.swing.JButton();
+        btn_anterior1 = new javax.swing.JButton();
+        btn_siguiente1 = new javax.swing.JButton();
+        btn_ultimo1 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        txt_CsedeProfesor = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         txt_InombreProfesor = new javax.swing.JTextField();
@@ -80,10 +104,25 @@ public class FormProfesor extends javax.swing.JFrame {
         jLabel19.setText("Telefono: ");
 
         btn_buscarProfesor.setText("Buscar");
+        btn_buscarProfesor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscarProfesorActionPerformed(evt);
+            }
+        });
 
         btn_editarProfesor.setText("Editar");
+        btn_editarProfesor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editarProfesorActionPerformed(evt);
+            }
+        });
 
         btn_elimiarProfesor.setText("Eliminar");
+        btn_elimiarProfesor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_elimiarProfesorActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Codigo de Marca:");
 
@@ -98,9 +137,35 @@ public class FormProfesor extends javax.swing.JFrame {
 
         jLabel11.setText("Libros Asignados");
 
-        jButton3.setText("<");
+        btn_primero1.setText("|<");
+        btn_primero1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_primero1ActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText(">");
+        btn_anterior1.setText("<");
+        btn_anterior1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_anterior1ActionPerformed(evt);
+            }
+        });
+
+        btn_siguiente1.setText(">");
+        btn_siguiente1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_siguiente1ActionPerformed(evt);
+            }
+        });
+
+        btn_ultimo1.setText(">|");
+        btn_ultimo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ultimo1ActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Sede:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -109,46 +174,47 @@ public class FormProfesor extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btn_primero1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_anterior1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_siguiente1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_ultimo1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_elimiarProfesor)
+                        .addGap(10, 10, 10)
+                        .addComponent(btn_volver4))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_buscarProfesor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_editarProfesor))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel16)
                             .addComponent(jLabel18)
                             .addComponent(jLabel19)
-                            .addComponent(jLabel17))
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9))
                         .addGap(46, 46, 46)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField16)
-                            .addComponent(jTextField17)
-                            .addComponent(jTextField18)
-                            .addComponent(jTextField19)))
+                            .addComponent(txt_CcodProfesor)
+                            .addComponent(txt_CsedeProfesor)
+                            .addComponent(txt_CnombreProfesor)
+                            .addComponent(txt_CapellidoProfesor)
+                            .addComponent(txt_CemailProfesor)
+                            .addComponent(txt_CtelefonoProfesor)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGap(63, 63, 63)
-                        .addComponent(jTextField20))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addComponent(jButton3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btn_buscarProfesor)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btn_editarProfesor))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel11)
-                                    .addGap(76, 76, 76)
-                                    .addComponent(txt_CLibosAsignados, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel10)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_elimiarProfesor)
-                        .addGap(10, 10, 10)
-                        .addComponent(btn_volver4)))
+                        .addComponent(jLabel10)
+                        .addGap(2, 2, 2)
+                        .addComponent(txt_CcantidProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                        .addComponent(txt_CLibosAsignados, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -157,42 +223,52 @@ public class FormProfesor extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_CnombreProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_CapellidoProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_CemailProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(txt_CtelefonoProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(txt_CsedeProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(txt_CLibosAsignados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                    .addComponent(txt_CcodProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton3)
-                        .addComponent(jButton4))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btn_buscarProfesor)
-                        .addComponent(btn_editarProfesor)
-                        .addComponent(btn_elimiarProfesor)
-                        .addComponent(btn_volver4)))
-                .addGap(0, 5, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(txt_CcantidProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11)
+                            .addComponent(txt_CLibosAsignados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_primero1)
+                            .addComponent(btn_siguiente1)
+                            .addComponent(btn_anterior1)
+                            .addComponent(btn_ultimo1))
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btn_buscarProfesor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_editarProfesor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_elimiarProfesor)
+                            .addComponent(btn_volver4))
+                        .addGap(0, 11, Short.MAX_VALUE))))
         );
 
         jTabbedPane4.addTab("Consultar Profesor", jPanel1);
@@ -212,6 +288,11 @@ public class FormProfesor extends javax.swing.JFrame {
         jLabel1.setText("Apellido:");
 
         bntGuardarProfesor.setText("Guardar");
+        bntGuardarProfesor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntGuardarProfesorActionPerformed(evt);
+            }
+        });
 
         btn_volver5.setText("volver");
         btn_volver5.addActionListener(new java.awt.event.ActionListener() {
@@ -305,7 +386,7 @@ public class FormProfesor extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 265, Short.MAX_VALUE)
+            .addGap(0, 267, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -340,6 +421,80 @@ public class FormProfesor extends javax.swing.JFrame {
         selcam.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_volver5ActionPerformed
+
+    private void btn_primero1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_primero1ActionPerformed
+        if(datos.primeroP()==null){
+            JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
+        }else{
+            imprimir(datos.primeroP());
+        }
+    }//GEN-LAST:event_btn_primero1ActionPerformed
+
+    private void btn_anterior1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_anterior1ActionPerformed
+        if(datos.primeroP()==null){
+            JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
+        }else{
+            imprimir(datos.anteriorP());
+        }
+    }//GEN-LAST:event_btn_anterior1ActionPerformed
+
+    private void btn_siguiente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_siguiente1ActionPerformed
+        if(datos.primeroP()==null){
+            JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
+        }else{
+            imprimir(datos.siguenteP());
+        }
+    }//GEN-LAST:event_btn_siguiente1ActionPerformed
+
+    private void btn_ultimo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ultimo1ActionPerformed
+        if(datos.primeroP()==null){
+            JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
+        }else{
+            imprimir(datos.ultimoP());
+        }
+    }//GEN-LAST:event_btn_ultimo1ActionPerformed
+
+    private void btn_buscarProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarProfesorActionPerformed
+         if(datos.primeroP()==null){
+            JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
+        }else{
+            imprimir(datos.buscarP(txt_CnombreProfesor.getText()));
+        }
+    }//GEN-LAST:event_btn_buscarProfesorActionPerformed
+
+    private void btn_editarProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarProfesorActionPerformed
+        if(datos.primeroP()==null){
+            JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
+        }else{
+            datos.modificarP(txt_CnombreProfesor.getText(),txt_CapellidoProfesor.getText(),
+                    txt_CemailProfesor.getText(),txt_CtelefonoProfesor.getText(),txt_CsedeProfesor.getText(), 
+                    txt_CcodProfesor.getText(),txt_CcantidProfesor.getText());
+        }
+        limpiar();
+    }//GEN-LAST:event_btn_editarProfesorActionPerformed
+
+    private void btn_elimiarProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_elimiarProfesorActionPerformed
+        if(datos.primeroP()==null){
+            JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
+        }else{
+            datos.eliminarP(txt_CnombreProfesor.getText());
+        }
+        limpiar();
+    }//GEN-LAST:event_btn_elimiarProfesorActionPerformed
+
+    private void bntGuardarProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntGuardarProfesorActionPerformed
+        if(txt_InombreProfesor.getText().isEmpty() || txt_IapellidoProfesor.getText().isEmpty()
+                || txt_IemailProfesor.getText().isEmpty() || txt_ItelefonoProfesor.getText().isEmpty()
+                || txt_IsedeProfesor.getText().isEmpty() || txt_IcodProfesor.getText().isEmpty()){
+            JOptionPane.showMessageDialog(rootPane, "Debe llenar todos los campos");
+        }else{
+            String cantidProfesor = txt_IcantidProfesor.getValue().toString();
+            datos.guardarP(txt_InombreProfesor.getText(), txt_IapellidoProfesor.getText(), 
+                    txt_IemailProfesor.getText(), txt_ItelefonoProfesor.getText(),
+                    txt_IsedeProfesor.getText(), txt_IcodProfesor.getText(),cantidProfesor);
+        }
+        limpiar();
+    }//GEN-LAST:event_bntGuardarProfesorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -379,13 +534,15 @@ public class FormProfesor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntGuardarProfesor;
+    private javax.swing.JButton btn_anterior1;
     private javax.swing.JButton btn_buscarProfesor;
     private javax.swing.JButton btn_editarProfesor;
     private javax.swing.JButton btn_elimiarProfesor;
+    private javax.swing.JButton btn_primero1;
+    private javax.swing.JButton btn_siguiente1;
+    private javax.swing.JButton btn_ultimo1;
     private javax.swing.JButton btn_volver4;
     private javax.swing.JButton btn_volver5;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -399,18 +556,20 @@ public class FormProfesor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane jTabbedPane4;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField txt_CLibosAsignados;
+    private javax.swing.JTextField txt_CapellidoProfesor;
+    private javax.swing.JTextField txt_CcantidProfesor;
+    private javax.swing.JTextField txt_CcodProfesor;
+    private javax.swing.JTextField txt_CemailProfesor;
+    private javax.swing.JTextField txt_CnombreProfesor;
+    private javax.swing.JTextField txt_CsedeProfesor;
+    private javax.swing.JTextField txt_CtelefonoProfesor;
     private javax.swing.JTextField txt_IapellidoProfesor;
     private javax.swing.JSpinner txt_IcantidProfesor;
     private javax.swing.JTextField txt_IcodProfesor;

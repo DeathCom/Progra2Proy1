@@ -65,16 +65,16 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
+                              <Component id="btn_primero" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="btn_anterior" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="btn_siguiente" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btn_buscarEstudiante" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="btn_editarEstudiante" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btn_ultimo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="btn_elimiarEstudiante" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="btn_volver2" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
@@ -91,7 +91,13 @@
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                                   <Component id="txt_CestatusEstudiante" alignment="0" pref="225" max="32767" attributes="0"/>
-                                                  <Component id="txt_CLibosAsignados" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="txt_CLibosAsignados" min="-2" pref="65" max="-2" attributes="0"/>
+                                                      <EmptySpace max="32767" attributes="0"/>
+                                                      <Component id="btn_buscarEstudiante" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="btn_editarEstudiante" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
                                                   <Component id="txt_CcarreraEstudiante" alignment="0" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
@@ -119,7 +125,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="8" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -173,15 +179,17 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txt_CLibosAsignados" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="15" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btn_buscarEstudiante" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_editarEstudiante" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_buscarEstudiante" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="12" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btn_elimiarEstudiante" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_volver2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btn_anterior" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_primero" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_siguiente" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_anterior" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_ultimo" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -284,12 +292,12 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txt_CLibosAsignados">
             </Component>
-            <Component class="javax.swing.JButton" name="btn_anterior">
+            <Component class="javax.swing.JButton" name="btn_primero">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&lt;"/>
+                <Property name="text" type="java.lang.String" value="|&lt;"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_anteriorActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_primeroActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btn_siguiente">
@@ -298,6 +306,22 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_siguienteActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btn_anterior">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&lt;"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_anteriorActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btn_ultimo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&gt;|"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_ultimoActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

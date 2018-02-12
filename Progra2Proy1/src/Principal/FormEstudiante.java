@@ -1,20 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Principal;
-
-/**
- *
- * @author cperezme
- */
 import Clases.Estudiante;
 import Clases.MasterClass;
 import javax.swing.JOptionPane;
 public class FormEstudiante extends javax.swing.JFrame {
     MasterClass datos = new MasterClass();
     public void limpiar(){
+        txt_CnombreEstudiante.setText("");
+        txt_CapellidoEstudiante.setText("");
+        txt_CemailEstudiante.setText("");
+        txt_CtelefonoEstudiante.setText("");
+        txt_CsedeEstudiante.setText("");
+        txt_CnumeroCarnetEstudiante.setText("");
+        txt_CcarreraEstudiante.setText("");
+        txt_CestatusEstudiante.setText("");
+        
         txt_InombreEstudiante.setText("");
         txt_IapellidoEstudiante.setText("");
         txt_IemailEstudiante.setText("");
@@ -75,8 +74,10 @@ public class FormEstudiante extends javax.swing.JFrame {
         btn_volver2 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         txt_CLibosAsignados = new javax.swing.JTextField();
-        btn_anterior = new javax.swing.JButton();
+        btn_primero = new javax.swing.JButton();
         btn_siguiente = new javax.swing.JButton();
+        btn_anterior = new javax.swing.JButton();
+        btn_ultimo = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         txt_InombreEstudiante = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -146,10 +147,10 @@ public class FormEstudiante extends javax.swing.JFrame {
 
         jLabel9.setText("Libros Asignados");
 
-        btn_anterior.setText("<");
-        btn_anterior.addActionListener(new java.awt.event.ActionListener() {
+        btn_primero.setText("|<");
+        btn_primero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_anteriorActionPerformed(evt);
+                btn_primeroActionPerformed(evt);
             }
         });
 
@@ -157,6 +158,20 @@ public class FormEstudiante extends javax.swing.JFrame {
         btn_siguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_siguienteActionPerformed(evt);
+            }
+        });
+
+        btn_anterior.setText("<");
+        btn_anterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_anteriorActionPerformed(evt);
+            }
+        });
+
+        btn_ultimo.setText(">|");
+        btn_ultimo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ultimoActionPerformed(evt);
             }
         });
 
@@ -168,16 +183,16 @@ public class FormEstudiante extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(btn_primero)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_anterior)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn_siguiente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_buscarEstudiante)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_editarEstudiante)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_ultimo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_elimiarEstudiante)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn_volver2))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,7 +207,12 @@ public class FormEstudiante extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(txt_CestatusEstudiante, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
-                                            .addComponent(txt_CLibosAsignados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                                .addComponent(txt_CLibosAsignados, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(btn_buscarEstudiante)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btn_editarEstudiante))
                                             .addComponent(txt_CcarreraEstudiante, javax.swing.GroupLayout.Alignment.LEADING)))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(12, 12, 12)
@@ -211,7 +231,7 @@ public class FormEstudiante extends javax.swing.JFrame {
                                     .addComponent(txt_CapellidoEstudiante, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txt_CnombreEstudiante, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txt_CsedeEstudiante))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 8, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -252,15 +272,17 @@ public class FormEstudiante extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(txt_CLibosAsignados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_buscarEstudiante)
+                    .addComponent(txt_CLibosAsignados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_editarEstudiante)
+                    .addComponent(btn_buscarEstudiante))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_elimiarEstudiante)
                     .addComponent(btn_volver2)
+                    .addComponent(btn_primero)
+                    .addComponent(btn_siguiente)
                     .addComponent(btn_anterior)
-                    .addComponent(btn_siguiente))
+                    .addComponent(btn_ultimo))
                 .addContainerGap())
         );
 
@@ -425,13 +447,13 @@ public class FormEstudiante extends javax.swing.JFrame {
         limpiar();
     }//GEN-LAST:event_bntGuardarEstudianteActionPerformed
 
-    private void btn_anteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_anteriorActionPerformed
-        if(datos.primeroE()==null){
+    private void btn_primeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_primeroActionPerformed
+         if(datos.primeroE()==null){
             JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
         }else{
-            imprimir(datos.anteriorE());
+            imprimir(datos.primeroE());
         }
-    }//GEN-LAST:event_btn_anteriorActionPerformed
+    }//GEN-LAST:event_btn_primeroActionPerformed
 
     private void btn_siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_siguienteActionPerformed
         if(datos.primeroE()==null){
@@ -442,17 +464,20 @@ public class FormEstudiante extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_siguienteActionPerformed
 
     private void btn_buscarEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarEstudianteActionPerformed
-        // TODO add your handling code here:
+        if(datos.primeroE()==null){
+            JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
+        }else{
+             imprimir(datos.buscarE(txt_CnombreEstudiante.getText()));
+        }
     }//GEN-LAST:event_btn_buscarEstudianteActionPerformed
 
     private void btn_editarEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarEstudianteActionPerformed
         if(datos.primeroE()==null){
             JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
         }else{
-            String estatusEstudiante = txt_IestatusEstudiante.getSelectedItem().toString();
             datos.modificarE(txt_CnombreEstudiante.getText(),txt_CapellidoEstudiante.getText(),
                     txt_CemailEstudiante.getText(),txt_CtelefonoEstudiante.getText(),txt_CsedeEstudiante.getText(), 
-                    txt_CnumeroCarnetEstudiante.getText(),txt_CcarreraEstudiante.getText(), estatusEstudiante);
+                    txt_CnumeroCarnetEstudiante.getText(),txt_CcarreraEstudiante.getText(), txt_CestatusEstudiante.getText());
         }
         limpiar();
     }//GEN-LAST:event_btn_editarEstudianteActionPerformed
@@ -462,10 +487,26 @@ public class FormEstudiante extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
         }else{
             datos.eliminarE(txt_CnombreEstudiante.getText());
-            limpiar();
         }
+        limpiar();
         
     }//GEN-LAST:event_btn_elimiarEstudianteActionPerformed
+
+    private void btn_anteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_anteriorActionPerformed
+        if(datos.primeroE()==null){
+            JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
+        }else{
+            imprimir(datos.anteriorE());
+        }
+    }//GEN-LAST:event_btn_anteriorActionPerformed
+
+    private void btn_ultimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ultimoActionPerformed
+        if(datos.primeroE()==null){
+            JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
+        }else{
+            imprimir(datos.ultimoE());
+        }
+    }//GEN-LAST:event_btn_ultimoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -509,7 +550,9 @@ public class FormEstudiante extends javax.swing.JFrame {
     private javax.swing.JButton btn_buscarEstudiante;
     private javax.swing.JButton btn_editarEstudiante;
     private javax.swing.JButton btn_elimiarEstudiante;
+    private javax.swing.JButton btn_primero;
     private javax.swing.JButton btn_siguiente;
+    private javax.swing.JButton btn_ultimo;
     private javax.swing.JButton btn_volver;
     private javax.swing.JButton btn_volver2;
     private javax.swing.JLabel jLabel1;
