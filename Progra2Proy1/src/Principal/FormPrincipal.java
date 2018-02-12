@@ -9,12 +9,12 @@ package Principal;
  *
  * @author cperezme
  */
-public class Principal extends javax.swing.JFrame {
+public class FormPrincipal extends javax.swing.JFrame {
 
     /**
      * Creates new form Principal
      */
-    public Principal() {
+    public FormPrincipal() {
         initComponents();
     }
 
@@ -36,6 +36,7 @@ public class Principal extends javax.swing.JFrame {
         btn_SolicitarLibro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(550, 300));
 
         btn_libros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/libros.jpg"))); // NOI18N
         btn_libros.addActionListener(new java.awt.event.ActionListener() {
@@ -130,7 +131,7 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_estudiantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_estudiantesActionPerformed
-        Estudiante abrir = new Estudiante();  //instancia el form 
+        FormEstudiante abrir = new FormEstudiante();  //instancia el form 
         abrir.setVisible(true);
         //abre el form seleccionCampos 
         this.dispose();
@@ -138,7 +139,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_estudiantesActionPerformed
 
     private void btn_funcionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_funcionariosActionPerformed
-        Funcionario abrir = new Funcionario();  //instancia el form 
+        FormFuncionario abrir = new FormFuncionario();  //instancia el form 
         abrir.setVisible(true);
         //abre el form seleccionCampos 
         this.dispose();
@@ -146,7 +147,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_funcionariosActionPerformed
 
     private void btn_profesoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_profesoresActionPerformed
-        Profesor abrir = new Profesor();  //instancia el form 
+        FormProfesor abrir = new FormProfesor();  //instancia el form 
         abrir.setVisible(true);
         //abre el form seleccionCampos 
         this.dispose();
@@ -154,7 +155,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_profesoresActionPerformed
 
     private void btn_librosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_librosActionPerformed
-        Libro abrir = new Libro();  //instancia el form 
+        FormLibro abrir = new FormLibro();  //instancia el form 
         abrir.setVisible(true);
         //abre el form seleccionCampos 
         this.dispose();
@@ -167,7 +168,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_salirActionPerformed
 
     private void btn_SolicitarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SolicitarLibroActionPerformed
-        SolictarLibro abrir = new SolictarLibro();  //instancia el form 
+        FormSolictarLibro abrir = new FormSolictarLibro();  //instancia el form 
         abrir.setVisible(true);
         //abre el form seleccionCampos 
         this.dispose();
@@ -191,20 +192,21 @@ public class Principal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Principal().setVisible(true);
+                new FormPrincipal().setVisible(true);
             }
         });
     }

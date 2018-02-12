@@ -9,12 +9,12 @@ package Principal;
  *
  * @author cperezme
  */
-public class Funcionario extends javax.swing.JFrame {
+public class FormFuncionario extends javax.swing.JFrame {
 
     /**
      * Creates new form Funcionario
      */
-    public Funcionario() {
+    public FormFuncionario() {
         initComponents();
     }
 
@@ -74,6 +74,7 @@ public class Funcionario extends javax.swing.JFrame {
         btn_volver4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(600, 300));
 
         jLabel16.setText("Nombre:");
 
@@ -199,14 +200,15 @@ public class Funcionario extends javax.swing.JFrame {
                     .addComponent(jLabel9)
                     .addComponent(txt_CLibosAsignados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_buscarFuncionario)
-                    .addComponent(btn_editarFuncionario)
-                    .addComponent(btn_elimiarFuncionario)
-                    .addComponent(btn_volver3)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton1)
-                        .addComponent(jButton2)))
+                        .addComponent(jButton2))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btn_buscarFuncionario)
+                        .addComponent(btn_editarFuncionario)
+                        .addComponent(btn_elimiarFuncionario)
+                        .addComponent(btn_volver3)))
                 .addContainerGap())
         );
 
@@ -339,13 +341,13 @@ public class Funcionario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_volver3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volver3ActionPerformed
-        Principal selcam = new Principal();
+        FormPrincipal selcam = new FormPrincipal();
         selcam.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_volver3ActionPerformed
 
     private void btn_volver4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volver4ActionPerformed
-        Principal selcam = new Principal();
+        FormPrincipal selcam = new FormPrincipal();
         selcam.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_volver4ActionPerformed
@@ -367,20 +369,21 @@ public class Funcionario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Funcionario().setVisible(true);
+                new FormFuncionario().setVisible(true);
             }
         });
     }

@@ -9,12 +9,12 @@ package Principal;
  *
  * @author cperezme
  */
-public class Libro extends javax.swing.JFrame {
+public class FormLibro extends javax.swing.JFrame {
 
     /**
      * Creates new form Libro
      */
-    public Libro() {
+    public FormLibro() {
         initComponents();
     }
 
@@ -98,6 +98,7 @@ public class Libro extends javax.swing.JFrame {
         bntGuardarAutor = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(600, 300));
 
         jLabel9.setText("Cantidad de libros Disponibles:");
 
@@ -174,14 +175,15 @@ public class Libro extends javax.swing.JFrame {
                     .addComponent(jLabel9)
                     .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_buscarLibro)
-                    .addComponent(btn_editarLibro)
-                    .addComponent(btn_elimiarLibro)
-                    .addComponent(btn_volver)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton1)
-                        .addComponent(jButton2)))
+                        .addComponent(jButton2))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btn_buscarLibro)
+                        .addComponent(btn_editarLibro)
+                        .addComponent(btn_elimiarLibro)
+                        .addComponent(btn_volver)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -421,14 +423,15 @@ public class Libro extends javax.swing.JFrame {
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(67, 67, 67)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_buscarAutor)
-                    .addComponent(btn_editarAutor)
-                    .addComponent(btn_elimiarAutor)
-                    .addComponent(btn_volver3)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton3)
-                        .addComponent(jButton4)))
+                        .addComponent(jButton4))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btn_buscarAutor)
+                        .addComponent(btn_editarAutor)
+                        .addComponent(btn_elimiarAutor)
+                        .addComponent(btn_volver3)))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -554,7 +557,7 @@ public class Libro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volverActionPerformed
-        Principal selcam = new Principal();
+        FormPrincipal selcam = new FormPrincipal();
         selcam.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_volverActionPerformed
@@ -576,19 +579,19 @@ public class Libro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void btn_volver2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volver2ActionPerformed
-        Principal selcam = new Principal();
+        FormPrincipal selcam = new FormPrincipal();
         selcam.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_volver2ActionPerformed
 
     private void btn_volver3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volver3ActionPerformed
-        Principal selcam = new Principal();
+        FormPrincipal selcam = new FormPrincipal();
         selcam.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_volver3ActionPerformed
 
     private void btn_volver4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volver4ActionPerformed
-        Principal selcam = new Principal();
+        FormPrincipal selcam = new FormPrincipal();
         selcam.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_volver4ActionPerformed
@@ -610,20 +613,21 @@ public class Libro extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Libro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Libro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Libro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Libro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Libro().setVisible(true);
+                new FormLibro().setVisible(true);
             }
         });
     }

@@ -9,12 +9,12 @@ package Principal;
  *
  * @author cperezme
  */
-public class Profesor extends javax.swing.JFrame {
+public class FormProfesor extends javax.swing.JFrame {
 
     /**
      * Creates new form Profesor
      */
-    public Profesor() {
+    public FormProfesor() {
         initComponents();
     }
 
@@ -69,6 +69,7 @@ public class Profesor extends javax.swing.JFrame {
         btn_volver5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(600, 300));
 
         jLabel16.setText("Nombre:");
 
@@ -182,14 +183,15 @@ public class Profesor extends javax.swing.JFrame {
                     .addComponent(jLabel11)
                     .addComponent(txt_CLibosAsignados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_buscarProfesor)
-                    .addComponent(btn_editarProfesor)
-                    .addComponent(btn_elimiarProfesor)
-                    .addComponent(btn_volver4)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton3)
-                        .addComponent(jButton4)))
+                        .addComponent(jButton4))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btn_buscarProfesor)
+                        .addComponent(btn_editarProfesor)
+                        .addComponent(btn_elimiarProfesor)
+                        .addComponent(btn_volver4)))
                 .addGap(0, 5, Short.MAX_VALUE))
         );
 
@@ -328,13 +330,13 @@ public class Profesor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_volver4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volver4ActionPerformed
-        Principal selcam = new Principal();
+        FormPrincipal selcam = new FormPrincipal();
         selcam.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_volver4ActionPerformed
 
     private void btn_volver5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volver5ActionPerformed
-        Principal selcam = new Principal();
+        FormPrincipal selcam = new FormPrincipal();
         selcam.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_volver5ActionPerformed
@@ -356,20 +358,21 @@ public class Profesor extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Profesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormProfesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Profesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormProfesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Profesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormProfesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Profesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormProfesor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Profesor().setVisible(true);
+                new FormProfesor().setVisible(true);
             }
         });
     }
