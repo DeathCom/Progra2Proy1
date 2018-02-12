@@ -5,15 +5,17 @@ public class Autor extends Persona{
     private String nacionalidad;
     private String autorEstaVivo;
     private String cantidadLibrosPublicados;
+    private Autor siguente;
+    private Autor anterior;
 
-    public Autor(String nacionalidad, String autorEstaVivo, 
+    /*public Autor(String nacionalidad, String autorEstaVivo, 
             String cantidadLibrosPublicados, String nombre, String apellido, 
             String direccionCorreo, String telefono, String sede) {
         super(nombre, apellido, direccionCorreo, telefono, sede);
         this.nacionalidad = nacionalidad;
         this.autorEstaVivo = autorEstaVivo;
         this.cantidadLibrosPublicados = cantidadLibrosPublicados;
-    }
+    }*/
     
     public void cantidadLibrosPrestados(){
         //Codigo pendiente.
@@ -41,6 +43,22 @@ public class Autor extends Persona{
 
     public void setCantidadLibrosPublicados(String cantidadLibrosPublicados) {
         this.cantidadLibrosPublicados = cantidadLibrosPublicados;
+    }
+
+    public Autor getSiguente() {
+        return siguente;
+    }
+
+    public void setSiguente(Autor siguente) {
+        this.siguente = siguente;
+    }
+
+    public Autor getAnterior() {
+        return anterior;
+    }
+
+    public void setAnterior(Autor anterior) {
+        this.anterior = anterior;
     }
     
 }

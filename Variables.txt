@@ -102,3 +102,5 @@ txt_Cede
 txt_TipoPersona
 txt_CantidadLibros
 txt_Accion
+#################################################################
+Libros Asignados = txt_CLibosAsignados

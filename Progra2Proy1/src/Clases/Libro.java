@@ -11,14 +11,16 @@ public class Libro {
     private String fechaPublicacion;
     private String editorial;
     private String cantidadLibrosDisponibles;
+    private Libro siguente;
+    private Libro anterior;
 
-    public Libro(String nombreLibro, String autor, String fechaPublicacion, String editorial, String cantidadLibrosDisponibles) {
+    /*public Libro(String nombreLibro, String autor, String fechaPublicacion, String editorial, String cantidadLibrosDisponibles) {
         this.nombreLibro = nombreLibro;
         this.autor = autor;
         this.fechaPublicacion = fechaPublicacion;
         this.editorial = editorial;
         this.cantidadLibrosDisponibles = cantidadLibrosDisponibles;
-    }
+    }*/
 
     public String getNombreLibro() {
         return nombreLibro;
@@ -58,5 +60,21 @@ public class Libro {
 
     public void setCantidadLibrosDisponibles(String cantidadLibrosDisponibles) {
         this.cantidadLibrosDisponibles = cantidadLibrosDisponibles;
+    }
+
+    public Libro getSiguente() {
+        return siguente;
+    }
+
+    public void setSiguente(Libro siguente) {
+        this.siguente = siguente;
+    }
+
+    public Libro getAnterior() {
+        return anterior;
+    }
+
+    public void setAnterior(Libro anterior) {
+        this.anterior = anterior;
     }
 }

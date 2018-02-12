@@ -10,14 +10,14 @@ public abstract class Persona {
     private String telefono;
     private String sede;
 
-    public Persona(String nombre, String apellido, String direccionCorreo, 
+    /*public Persona(String nombre, String apellido, String direccionCorreo, 
                String telefono, String sede) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.direccionCorreo = direccionCorreo;
         this.telefono = telefono;
         this.sede = sede;
-    }
+    }*/
     
     public abstract void cantidadLibrosPrestados();
     

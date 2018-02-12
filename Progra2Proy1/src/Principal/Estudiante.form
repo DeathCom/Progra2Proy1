@@ -71,7 +71,7 @@
                               </Group>
                               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txt_CnombreEstudiante" alignment="0" pref="226" max="32767" attributes="0"/>
+                                  <Component id="txt_CnombreEstudiante" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txt_CapellidoEstudiante" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txt_CemailEstudiante" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txt_CtelefonoEstudiante" alignment="0" max="32767" attributes="0"/>
@@ -92,7 +92,10 @@
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="btn_buscarEstudiante" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="btn_editarEstudiante" min="-2" max="-2" attributes="0"/>
@@ -100,6 +103,12 @@
                               <Component id="btn_elimiarEstudiante" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btn_volver2" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="txt_CLibosAsignados" min="-2" pref="65" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -149,14 +158,21 @@
                           <Component id="txt_CestatusEstudiante" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txt_CLibosAsignados" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="15" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btn_buscarEstudiante" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_editarEstudiante" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_elimiarEstudiante" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_volver2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -241,6 +257,23 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_volver2ActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JLabel" name="jLabel9">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Libros Asignados"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txt_CLibosAsignados">
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&lt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&gt;"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel1">
@@ -287,7 +320,7 @@
                                   <Component id="txt_IcarreraEstudiante" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="txt_IestatusEstudiante" min="-2" pref="48" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="180" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="185" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>

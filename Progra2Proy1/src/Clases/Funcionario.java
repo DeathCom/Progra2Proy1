@@ -5,15 +5,17 @@ public class Funcionario extends Persona{
     private String numeroEmpleado;
     private String puesto; 
     private String departamento;
+    private Funcionario siguente;
+    private Funcionario anterior;
 
-    public Funcionario(String nombre, String apellido, String direccionCorreo, 
+    /*public Funcionario(String nombre, String apellido, String direccionCorreo, 
                String telefono, String sede, String numeroEmpleado, String puesto, 
                String departamento) {
         super(nombre, apellido, direccionCorreo, telefono, sede);
         this.numeroEmpleado = numeroEmpleado;
         this.puesto = puesto;
         this.departamento = departamento;
-    }
+    }*/
     
     public void cantidadLibrosPrestados(){
         //Codigo pendiente.
@@ -41,6 +43,22 @@ public class Funcionario extends Persona{
 
     public void setDepartamento(String departamento) {
         this.departamento = departamento;
+    }
+
+    public Funcionario getSiguente() {
+        return siguente;
+    }
+
+    public void setSiguente(Funcionario siguente) {
+        this.siguente = siguente;
+    }
+
+    public Funcionario getAnterior() {
+        return anterior;
+    }
+
+    public void setAnterior(Funcionario anterior) {
+        this.anterior = anterior;
     }
     
 }

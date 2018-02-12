@@ -50,6 +50,10 @@ public class Estudiante extends javax.swing.JFrame {
         btn_editarEstudiante = new javax.swing.JButton();
         btn_buscarEstudiante = new javax.swing.JButton();
         btn_volver2 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        txt_CLibosAsignados = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         txt_InombreEstudiante = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -101,6 +105,12 @@ public class Estudiante extends javax.swing.JFrame {
             }
         });
 
+        jLabel9.setText("Libros Asignados");
+
+        jButton1.setText("<");
+
+        jButton2.setText(">");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -117,7 +127,7 @@ public class Estudiante extends javax.swing.JFrame {
                             .addComponent(jLabel17))
                         .addGap(46, 46, 46)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_CnombreEstudiante, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                            .addComponent(txt_CnombreEstudiante)
                             .addComponent(txt_CapellidoEstudiante)
                             .addComponent(txt_CemailEstudiante)
                             .addComponent(txt_CtelefonoEstudiante)
@@ -133,14 +143,22 @@ public class Estudiante extends javax.swing.JFrame {
                             .addComponent(txt_CcarreraEstudiante)
                             .addComponent(txt_CestatusEstudiante)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_buscarEstudiante)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn_editarEstudiante)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn_elimiarEstudiante)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_volver2)))
+                        .addComponent(btn_volver2))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txt_CLibosAsignados, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(163, 163, 163)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -178,13 +196,19 @@ public class Estudiante extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_CestatusEstudiante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel23))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(txt_CLibosAsignados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_buscarEstudiante)
                     .addComponent(btn_editarEstudiante)
                     .addComponent(btn_elimiarEstudiante)
-                    .addComponent(btn_volver2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_volver2)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Consultar Estudiante", jPanel2);
@@ -248,7 +272,7 @@ public class Estudiante extends javax.swing.JFrame {
                             .addComponent(txt_IcarreraEstudiante)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(txt_IestatusEstudiante, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 180, Short.MAX_VALUE))))
+                                .addGap(0, 185, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(bntGuardarEstudiante)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -369,6 +393,8 @@ public class Estudiante extends javax.swing.JFrame {
     private javax.swing.JButton btn_elimiarEstudiante;
     private javax.swing.JButton btn_volver;
     private javax.swing.JButton btn_volver2;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -385,10 +411,12 @@ public class Estudiante extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane4;
+    private javax.swing.JTextField txt_CLibosAsignados;
     private javax.swing.JTextField txt_CapellidoEstudiante;
     private javax.swing.JTextField txt_CcarreraEstudiante;
     private javax.swing.JTextField txt_CemailEstudiante;

@@ -43,6 +43,8 @@ public class Libro extends javax.swing.JFrame {
         btn_editarLibro = new javax.swing.JButton();
         btn_elimiarLibro = new javax.swing.JButton();
         btn_volver = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -75,6 +77,8 @@ public class Libro extends javax.swing.JFrame {
         btn_volver3 = new javax.swing.JButton();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jComboBox3 = new javax.swing.JComboBox<>();
         jLabel31 = new javax.swing.JLabel();
@@ -118,6 +122,10 @@ public class Libro extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("<");
+
+        jButton2.setText(">");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -125,7 +133,11 @@ public class Libro extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(97, Short.MAX_VALUE)
+                        .addGap(3, 3, 3)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_buscarLibro)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn_editarLibro)
@@ -150,7 +162,7 @@ public class Libro extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jTextField17, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jTextField19, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jTextField16, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                        .addComponent(jTextField16, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
                         .addComponent(jTextField18))
                     .addGap(3, 3, 3)))
         );
@@ -166,7 +178,10 @@ public class Libro extends javax.swing.JFrame {
                     .addComponent(btn_buscarLibro)
                     .addComponent(btn_editarLibro)
                     .addComponent(btn_elimiarLibro)
-                    .addComponent(btn_volver))
+                    .addComponent(btn_volver)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton1)
+                        .addComponent(jButton2)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -262,7 +277,7 @@ public class Libro extends javax.swing.JFrame {
                                 .addComponent(jLabel10)
                                 .addGap(28, 28, 28)
                                 .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                         .addComponent(btn_volver2)))
                 .addContainerGap())
         );
@@ -328,6 +343,10 @@ public class Libro extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setText("<");
+
+        jButton4.setText(">");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -344,13 +363,16 @@ public class Libro extends javax.swing.JFrame {
                             .addComponent(jLabel25))
                         .addGap(46, 46, 46)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField21, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                            .addComponent(jTextField21)
                             .addComponent(jTextField22)
                             .addComponent(jTextField23)
                             .addComponent(jTextField24)
                             .addComponent(jTextField25)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_buscarAutor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn_editarAutor)
@@ -403,7 +425,10 @@ public class Libro extends javax.swing.JFrame {
                     .addComponent(btn_buscarAutor)
                     .addComponent(btn_editarAutor)
                     .addComponent(btn_elimiarAutor)
-                    .addComponent(btn_volver3))
+                    .addComponent(btn_volver3)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton3)
+                        .addComponent(jButton4)))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -441,7 +466,7 @@ public class Libro extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(bntGuardarAutor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 241, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 244, Short.MAX_VALUE)
                 .addComponent(btn_volver4)
                 .addContainerGap())
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -616,6 +641,10 @@ public class Libro extends javax.swing.JFrame {
     private javax.swing.JButton btn_volver2;
     private javax.swing.JButton btn_volver3;
     private javax.swing.JButton btn_volver4;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel16;

@@ -5,19 +5,22 @@ public class Estudiante extends Persona{
     private String numeroCarnet;
     private String carreraCursando;
     private String estatus;
+    private Estudiante siguente;
+    private Estudiante anterior;
 
-    public Estudiante(String nombre, String apellido, String direccionCorreo, 
+    /*public Estudiante(String nombre, String apellido, String direccionCorreo, 
                String telefono, String sede, String numeroCarnet, String carreraCursando, 
                String estatus) {
         super(nombre, apellido, direccionCorreo, telefono, sede);
         this.numeroCarnet = numeroCarnet;
         this.carreraCursando = carreraCursando;
         this.estatus = estatus;
-    }
+    }*/
     
     public void cantidadLibrosPrestados(){
         //Codigo pendiente.
     }
+    
     public String getNumeroCarnet() {
         return numeroCarnet;
     }
@@ -40,5 +43,21 @@ public class Estudiante extends Persona{
 
     public void setEstatus(String estatus) {
         this.estatus = estatus;
+    }
+
+    public Estudiante getSiguente() {
+        return siguente;
+    }
+
+    public void setSiguente(Estudiante siguente) {
+        this.siguente = siguente;
+    }
+
+    public Estudiante getAnterior() {
+        return anterior;
+    }
+
+    public void setAnterior(Estudiante anterior) {
+        this.anterior = anterior;
     }
 }
