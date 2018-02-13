@@ -87,7 +87,7 @@ public class FormEstudiante extends javax.swing.JFrame {
         btn_siguiente = new javax.swing.JButton();
         btn_anterior = new javax.swing.JButton();
         btn_ultimo = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btn_CargarDatosEstudientes = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         txt_InombreEstudiante = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -185,10 +185,10 @@ public class FormEstudiante extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Cargar data");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_CargarDatosEstudientes.setText("Cargar data");
+        btn_CargarDatosEstudientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_CargarDatosEstudientesActionPerformed(evt);
             }
         });
 
@@ -239,7 +239,7 @@ public class FormEstudiante extends javax.swing.JFrame {
                         .addGap(0, 8, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton2)
+                            .addComponent(btn_CargarDatosEstudientes)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(btn_primero)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -296,7 +296,7 @@ public class FormEstudiante extends javax.swing.JFrame {
                     .addComponent(btn_editarEstudiante)
                     .addComponent(btn_buscarEstudiante))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(btn_CargarDatosEstudientes)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_elimiarEstudiante)
@@ -435,7 +435,7 @@ public class FormEstudiante extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
 
         pack();
@@ -542,7 +542,7 @@ public class FormEstudiante extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_ultimoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btn_CargarDatosEstudientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CargarDatosEstudientesActionPerformed
         Estudiante estudiante = new Estudiante();
         String linea;FileReader f = null;
         try {
@@ -569,7 +569,7 @@ public class FormEstudiante extends javax.swing.JFrame {
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, e);
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btn_CargarDatosEstudientesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -609,6 +609,7 @@ public class FormEstudiante extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntGuardarEstudiante;
+    private javax.swing.JButton btn_CargarDatosEstudientes;
     private javax.swing.JButton btn_anterior;
     private javax.swing.JButton btn_buscarEstudiante;
     private javax.swing.JButton btn_editarEstudiante;
@@ -618,7 +619,6 @@ public class FormEstudiante extends javax.swing.JFrame {
     private javax.swing.JButton btn_ultimo;
     private javax.swing.JButton btn_volver;
     private javax.swing.JButton btn_volver2;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;

@@ -3,6 +3,12 @@ import Clases.Libro;
 import Clases.Autor;
 import Clases.MasterClass;
 import Clases.MasterArchivos;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 public class FormLibro extends javax.swing.JFrame {
     MasterClass datos = new MasterClass();
@@ -95,7 +101,7 @@ public class FormLibro extends javax.swing.JFrame {
         btn_anteriorLibro = new javax.swing.JButton();
         btn_siguienteLibro = new javax.swing.JButton();
         btn_ultimoLibro = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btn_CargarDatosLibros = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -134,7 +140,7 @@ public class FormLibro extends javax.swing.JFrame {
         btn_ultimoAutor = new javax.swing.JButton();
         txt_Cnacionalidad = new javax.swing.JTextField();
         jLabel38 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btn_CargarDatosAutores = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         txt_IaunVivoAutor = new javax.swing.JComboBox<>();
         jLabel31 = new javax.swing.JLabel();
@@ -224,7 +230,12 @@ public class FormLibro extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Cargar data");
+        btn_CargarDatosLibros.setText("Cargar data");
+        btn_CargarDatosLibros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CargarDatosLibrosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -238,7 +249,7 @@ public class FormLibro extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
+                    .addComponent(btn_CargarDatosLibros)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btn_primeroLibro)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -287,7 +298,7 @@ public class FormLibro extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_buscarLibro)
                     .addComponent(btn_editarLibro)
-                    .addComponent(jButton1))
+                    .addComponent(btn_CargarDatosLibros))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_elimiarLibro)
@@ -504,7 +515,12 @@ public class FormLibro extends javax.swing.JFrame {
 
         jLabel38.setText("Nacionalidad:");
 
-        jButton2.setText("Cargar data");
+        btn_CargarDatosAutores.setText("Cargar data");
+        btn_CargarDatosAutores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CargarDatosAutoresActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -540,7 +556,7 @@ public class FormLibro extends javax.swing.JFrame {
                             .addComponent(txt_CsedeAutor)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton2)
+                            .addComponent(btn_CargarDatosAutores)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(btn_primeroAutor)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -599,7 +615,7 @@ public class FormLibro extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_editarAutor)
                     .addComponent(btn_buscarAutor)
-                    .addComponent(jButton2))
+                    .addComponent(btn_CargarDatosAutores))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -956,6 +972,60 @@ public class FormLibro extends javax.swing.JFrame {
         limpiarA();
     }//GEN-LAST:event_bntGuardarAutorActionPerformed
 
+    private void btn_CargarDatosAutoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CargarDatosAutoresActionPerformed
+        Autor autor = new Autor();
+        String linea;FileReader f = null;
+        try {
+            f = new FileReader("Funcionarios.txt");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(MasterClass.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try (BufferedReader b = new BufferedReader(f)) {
+            while ((linea = b.readLine()) != null) {
+                String orden[] = linea.split(",");
+                autor.setNombre(orden[0]);
+                autor.setApellido(orden[1]);
+                autor.setDireccionCorreo(orden[2]);
+                autor.setTelefono(orden[3]);
+                autor.setSede(orden[4]);
+                autor.setNacionalidad(orden[5]);
+                autor.setAutorEstaVivo(orden[6]);
+                autor.setCantidadLibrosPublicados(orden[7]);
+                datos.guardarA(autor.getNombre(), autor.getApellido(), 
+                    autor.getDireccionCorreo(), autor.getTelefono(),
+                    autor.getSede(), autor.getNacionalidad(),
+                    autor.getAutorEstaVivo(), autor.getCantidadLibrosPublicados());
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_btn_CargarDatosAutoresActionPerformed
+
+    private void btn_CargarDatosLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CargarDatosLibrosActionPerformed
+        Libro libro = new Libro();
+        String linea;FileReader f = null;
+        try {
+            f = new FileReader("Libros.txt");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(MasterClass.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try (BufferedReader b = new BufferedReader(f)) {
+            while ((linea = b.readLine()) != null) {
+                String orden[] = linea.split(",");
+                libro.setNombreLibro(orden[0]);
+                libro.setAutor(orden[1]);
+                libro.setFechaPublicacion(orden[2]);
+                libro.setEditorial(orden[3]);
+                libro.setCantidadLibrosDisponibles(orden[4]);
+                datos.guardarL(libro.getNombreLibro(), libro.getAutor(), 
+                    libro.getFechaPublicacion(), libro.getEditorial(),
+                    libro.getCantidadLibrosDisponibles());
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_btn_CargarDatosLibrosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -995,6 +1065,8 @@ public class FormLibro extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntGuardarAutor;
     private javax.swing.JButton bntGuardarLibro;
+    private javax.swing.JButton btn_CargarDatosAutores;
+    private javax.swing.JButton btn_CargarDatosLibros;
     private javax.swing.JButton btn_anteriorAutor;
     private javax.swing.JButton btn_anteriorLibro;
     private javax.swing.JButton btn_buscarAutor;
@@ -1013,8 +1085,6 @@ public class FormLibro extends javax.swing.JFrame {
     private javax.swing.JButton btn_volver2;
     private javax.swing.JButton btn_volver3;
     private javax.swing.JButton btn_volver4;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;

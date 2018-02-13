@@ -2,6 +2,12 @@ package Principal;
 import Clases.Profesor;
 import Clases.MasterClass;
 import Clases.MasterArchivos;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 public class FormProfesor extends javax.swing.JFrame {
     MasterClass datos = new MasterClass();
@@ -76,7 +82,7 @@ public class FormProfesor extends javax.swing.JFrame {
         btn_ultimo1 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         txt_CsedeProfesor = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        btn_CargarDatosProfesores = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         txt_InombreProfesor = new javax.swing.JTextField();
@@ -171,7 +177,12 @@ public class FormProfesor extends javax.swing.JFrame {
 
         jLabel8.setText("Sede:");
 
-        jButton2.setText("Cargar data");
+        btn_CargarDatosProfesores.setText("Cargar data");
+        btn_CargarDatosProfesores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CargarDatosProfesoresActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -206,7 +217,7 @@ public class FormProfesor extends javax.swing.JFrame {
                         .addComponent(txt_CLibosAsignados, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton2)
+                            .addComponent(btn_CargarDatosProfesores)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btn_primero1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -264,7 +275,7 @@ public class FormProfesor extends javax.swing.JFrame {
                             .addComponent(jLabel11)
                             .addComponent(txt_CLibosAsignados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
+                        .addComponent(btn_CargarDatosProfesores)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btn_primero1)
@@ -519,6 +530,34 @@ public class FormProfesor extends javax.swing.JFrame {
         limpiar();
     }//GEN-LAST:event_bntGuardarProfesorActionPerformed
 
+    private void btn_CargarDatosProfesoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CargarDatosProfesoresActionPerformed
+        Profesor profesor = new Profesor();
+        String linea;FileReader f = null;
+        try {
+            f = new FileReader("Funcionarios.txt");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(MasterClass.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try (BufferedReader b = new BufferedReader(f)) {
+            while ((linea = b.readLine()) != null) {
+                String orden[] = linea.split(",");
+                profesor.setNombre(orden[0]);
+                profesor.setApellido(orden[1]);
+                profesor.setDireccionCorreo(orden[2]);
+                profesor.setTelefono(orden[3]);
+                profesor.setSede(orden[4]);
+                profesor.setCodigoMarca(orden[5]);
+                profesor.setCantidadCursosqueImparte(orden[6]);
+                datos.guardarP(profesor.getNombre(), profesor.getApellido(), 
+                    profesor.getDireccionCorreo(), profesor.getTelefono(),
+                    profesor.getSede(), profesor.getCodigoMarca(),
+                    profesor.getCantidadCursosqueImparte());
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_btn_CargarDatosProfesoresActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -557,6 +596,7 @@ public class FormProfesor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntGuardarProfesor;
+    private javax.swing.JButton btn_CargarDatosProfesores;
     private javax.swing.JButton btn_anterior1;
     private javax.swing.JButton btn_buscarProfesor;
     private javax.swing.JButton btn_editarProfesor;
@@ -566,7 +606,6 @@ public class FormProfesor extends javax.swing.JFrame {
     private javax.swing.JButton btn_ultimo1;
     private javax.swing.JButton btn_volver4;
     private javax.swing.JButton btn_volver5;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
