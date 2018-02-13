@@ -1,7 +1,5 @@
 package Clases;
-
 import javax.swing.JOptionPane;
-
 /*Almacena y maneja el comportamiento de las otras clases*/
 public class MasterClass {
     private Estudiante obInicialEstud;
@@ -625,5 +623,6 @@ public class MasterClass {
         }while(obTmpLib != obInicialLib);
         return ob;
     }
-
+    
+ //Fin de MasterClass
 }
