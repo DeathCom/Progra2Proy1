@@ -64,76 +64,84 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="txt_CestatusEstudiante" alignment="0" pref="225" max="32767" attributes="0"/>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="txt_CLibosAsignados" min="-2" pref="65" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="btn_buscarEstudiante" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="btn_editarEstudiante" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="txt_CcarreraEstudiante" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                              <Component id="txt_CnumeroCarnetEstudiante" min="-2" pref="223" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="txt_CtelefonoEstudiante" alignment="0" pref="223" max="32767" attributes="0"/>
-                                          <Component id="txt_CemailEstudiante" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txt_CapellidoEstudiante" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txt_CnombreEstudiante" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txt_CsedeEstudiante" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="0" pref="8" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="txt_CLibosAsignados" min="-2" pref="65" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="btn_CargarDatosEstudientes" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                                  <Component id="txt_CnumeroCarnetEstudiante" min="-2" pref="223" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="txt_CestatusEstudiante" alignment="0" pref="225" max="32767" attributes="0"/>
+                                                      <Component id="txt_CcarreraEstudiante" alignment="0" max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="txt_CtelefonoEstudiante" alignment="0" pref="223" max="32767" attributes="0"/>
+                                              <Component id="txt_CemailEstudiante" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txt_CapellidoEstudiante" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txt_CnombreEstudiante" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txt_CsedeEstudiante" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="btn_editarEstudiante" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txt_eleccion" min="-2" pref="104" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="btn_buscarEstudiante" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="btn_CargarDatosEstudientes" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="txt_Remplazar" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
                                       <Component id="btn_primero" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="btn_anterior" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="btn_siguiente" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btn_ultimo" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace pref="36" max="32767" attributes="0"/>
+                                      <Component id="btn_elimiarEstudiante" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="btn_volver2" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btn_ultimo" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="btn_elimiarEstudiante" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="btn_volver2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -182,14 +190,18 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txt_Remplazar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_editarEstudiante" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txt_eleccion" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txt_CLibosAsignados" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btn_editarEstudiante" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_buscarEstudiante" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_CargarDatosEstudientes" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="38" max="32767" attributes="0"/>
-                      <Component id="btn_CargarDatosEstudientes" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btn_elimiarEstudiante" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_volver2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -198,7 +210,7 @@
                           <Component id="btn_anterior" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_ultimo" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -210,8 +222,14 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_CnombreEstudiante">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_CapellidoEstudiante">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel17">
               <Properties>
@@ -224,8 +242,14 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_CemailEstudiante">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_CtelefonoEstudiante">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel19">
               <Properties>
@@ -238,8 +262,14 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_CsedeEstudiante">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_CnumeroCarnetEstudiante">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel21">
               <Properties>
@@ -252,8 +282,14 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_CcarreraEstudiante">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_CestatusEstudiante">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel23">
               <Properties>
@@ -339,6 +375,27 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_CargarDatosEstudientesActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JTextField" name="txt_Remplazar">
+            </Component>
+            <Component class="javax.swing.JComboBox" name="txt_eleccion">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="8">
+                    <StringItem index="0" value="Nombre"/>
+                    <StringItem index="1" value="Apellido"/>
+                    <StringItem index="2" value="Correo"/>
+                    <StringItem index="3" value="Telefono"/>
+                    <StringItem index="4" value="Carrera"/>
+                    <StringItem index="5" value="Carnet"/>
+                    <StringItem index="6" value="Sede"/>
+                    <StringItem index="7" value="Estatus"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel1">
@@ -366,7 +423,7 @@
                               </Group>
                               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txt_InombreEstudiante" alignment="0" pref="231" max="32767" attributes="0"/>
+                                  <Component id="txt_InombreEstudiante" alignment="0" pref="233" max="32767" attributes="0"/>
                                   <Component id="txt_IapellidoEstudiante" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txt_IemailEstudiante" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txt_ItelefonoEstudiante" max="32767" attributes="0"/>

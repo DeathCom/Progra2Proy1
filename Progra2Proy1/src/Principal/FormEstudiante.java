@@ -4,6 +4,7 @@ import Clases.MasterClass;
 import Clases.MasterArchivos;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -31,6 +32,8 @@ public class FormEstudiante extends javax.swing.JFrame {
         txt_InumeroCarnetEstudiante.setText("");
         txt_IcarreraEstudiante.setText("");
         //txt_IestatusEstudiante.setText("");
+        
+        txt_Remplazar.setText("");
     }
     public void imprimir(Estudiante arg){
         txt_CnombreEstudiante.setText(arg.getNombre());
@@ -88,6 +91,8 @@ public class FormEstudiante extends javax.swing.JFrame {
         btn_anterior = new javax.swing.JButton();
         btn_ultimo = new javax.swing.JButton();
         btn_CargarDatosEstudientes = new javax.swing.JButton();
+        txt_Remplazar = new javax.swing.JTextField();
+        txt_eleccion = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         txt_InombreEstudiante = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -113,17 +118,33 @@ public class FormEstudiante extends javax.swing.JFrame {
 
         jLabel16.setText("Nombre:");
 
+        txt_CnombreEstudiante.setEditable(false);
+
+        txt_CapellidoEstudiante.setEditable(false);
+
         jLabel17.setText("Apellido:");
 
         jLabel18.setText("Direccion  de Correo:");
+
+        txt_CemailEstudiante.setEditable(false);
+
+        txt_CtelefonoEstudiante.setEditable(false);
 
         jLabel19.setText("Telefono: ");
 
         jLabel20.setText("Sede:");
 
+        txt_CsedeEstudiante.setEditable(false);
+
+        txt_CnumeroCarnetEstudiante.setEditable(false);
+
         jLabel21.setText("Numero de Carnet:");
 
         jLabel22.setText("Carrera que esta Cursando:");
+
+        txt_CcarreraEstudiante.setEditable(false);
+
+        txt_CestatusEstudiante.setEditable(false);
 
         jLabel23.setText("Estatus: ");
 
@@ -192,6 +213,8 @@ public class FormEstudiante extends javax.swing.JFrame {
             }
         });
 
+        txt_eleccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Apellido", "Correo", "Telefono", "Carrera", "Carnet", "Sede", "Estatus" }));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -200,59 +223,65 @@ public class FormEstudiante extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel22)
-                                    .addComponent(jLabel23)
-                                    .addComponent(jLabel21)
-                                    .addComponent(jLabel9))
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(txt_CestatusEstudiante, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                                .addComponent(txt_CLibosAsignados, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(btn_buscarEstudiante)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(btn_editarEstudiante))
-                                            .addComponent(txt_CcarreraEstudiante, javax.swing.GroupLayout.Alignment.LEADING)))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(12, 12, 12)
-                                        .addComponent(txt_CnumeroCarnetEstudiante, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel16)
-                                    .addComponent(jLabel18)
-                                    .addComponent(jLabel19)
-                                    .addComponent(jLabel20)
-                                    .addComponent(jLabel17))
-                                .addGap(46, 46, 46)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txt_CtelefonoEstudiante, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
-                                    .addComponent(txt_CemailEstudiante, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_CapellidoEstudiante, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_CnombreEstudiante, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_CsedeEstudiante))))
-                        .addGap(0, 8, Short.MAX_VALUE))
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txt_CLibosAsignados, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btn_CargarDatosEstudientes)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel22)
+                                        .addComponent(jLabel23)
+                                        .addComponent(jLabel21))
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addGap(12, 12, 12)
+                                            .addComponent(txt_CnumeroCarnetEstudiante, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(txt_CestatusEstudiante, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                                                .addComponent(txt_CcarreraEstudiante)))))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel16)
+                                        .addComponent(jLabel18)
+                                        .addComponent(jLabel19)
+                                        .addComponent(jLabel20)
+                                        .addComponent(jLabel17))
+                                    .addGap(46, 46, 46)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(txt_CtelefonoEstudiante, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+                                        .addComponent(txt_CemailEstudiante, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txt_CapellidoEstudiante, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txt_CnombreEstudiante, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txt_CsedeEstudiante))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(btn_editarEstudiante)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txt_eleccion, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(btn_buscarEstudiante)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btn_CargarDatosEstudientes))
+                                    .addComponent(txt_Remplazar)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(btn_primero)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btn_anterior)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btn_siguiente)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_ultimo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_elimiarEstudiante)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_volver2)))
-                .addContainerGap())
+                                .addComponent(btn_siguiente)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_ultimo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                                .addComponent(btn_elimiarEstudiante)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btn_volver2)))
+                        .addGap(18, 18, 18))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -291,13 +320,16 @@ public class FormEstudiante extends javax.swing.JFrame {
                     .addComponent(jLabel23))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_Remplazar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_editarEstudiante)
+                    .addComponent(txt_eleccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(txt_CLibosAsignados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_editarEstudiante)
-                    .addComponent(btn_buscarEstudiante))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addComponent(btn_CargarDatosEstudientes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(btn_buscarEstudiante)
+                    .addComponent(btn_CargarDatosEstudientes))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_elimiarEstudiante)
                     .addComponent(btn_volver2)
@@ -305,7 +337,7 @@ public class FormEstudiante extends javax.swing.JFrame {
                     .addComponent(btn_siguiente)
                     .addComponent(btn_anterior)
                     .addComponent(btn_ultimo))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Consultar Estudiante", jPanel2);
@@ -358,7 +390,7 @@ public class FormEstudiante extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addGap(46, 46, 46)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_InombreEstudiante, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                            .addComponent(txt_InombreEstudiante, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
                             .addComponent(txt_IapellidoEstudiante)
                             .addComponent(txt_IemailEstudiante)
                             .addComponent(txt_ItelefonoEstudiante)
@@ -506,14 +538,58 @@ public class FormEstudiante extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_buscarEstudianteActionPerformed
 
     private void btn_editarEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarEstudianteActionPerformed
+        Estudiante ob = new Estudiante();
+        
         if(datos.primeroE()==null){
             JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
         }else{
-            datos.modificarE(txt_CnombreEstudiante.getText(),txt_CapellidoEstudiante.getText(),
+            /*datos.modificarE(txt_CnombreEstudiante.getText(),txt_CapellidoEstudiante.getText(),
                     txt_CemailEstudiante.getText(),txt_CtelefonoEstudiante.getText(),txt_CsedeEstudiante.getText(), 
-                    txt_CnumeroCarnetEstudiante.getText(),txt_CcarreraEstudiante.getText(), txt_CestatusEstudiante.getText());
+                    txt_CnumeroCarnetEstudiante.getText(),txt_CcarreraEstudiante.getText(), txt_CestatusEstudiante.getText());*/
+            String eleccion = txt_eleccion.getSelectedItem().toString();
+            String opcion="vacio";
+            if(eleccion.equals("Nombre")){
+               opcion=txt_CnombreEstudiante.getText();
+            }else if(eleccion.equals("Apellido")){
+               opcion=txt_CapellidoEstudiante.getText();
+            }else if(eleccion.equals("Correo")){
+                opcion=txt_CemailEstudiante.getText();
+            }else if(eleccion.equals("Telefono")){
+                opcion=txt_CtelefonoEstudiante.getText();
+            }else if(eleccion.equals("Carrera")){
+                opcion=txt_CcarreraEstudiante.getText();
+            }else if(eleccion.equals("Carnet")){
+                opcion=txt_CnumeroCarnetEstudiante.getText();
+            }else if(eleccion.equals("Sede")){
+                opcion=txt_CsedeEstudiante.getText();
+            }else if(eleccion.equals("Estatus")){
+                opcion=txt_CestatusEstudiante.getText();
+            }
+            try{
+                BufferedReader file = new BufferedReader(new FileReader("Estudiantes.txt"));
+                String line;String input = "";
+                while((line = file.readLine()) != null){
+                    /* Podemos verificar si es Usuario_1 y \r\n es para hacer el 
+                      Salto de Línea y tener el formato original */
+                    if(line.contains(txt_CnombreEstudiante.getText())){
+                        input += line.replaceAll(opcion,txt_Remplazar.getText())+"\r\n";
+                        //input += "\n";
+                    }else{
+                        input += line+"\r\n";
+                    }
+                        
+                }
+                FileOutputStream fileOut = new FileOutputStream("Estudiantes.txt");
+                fileOut.write(input.getBytes());
+                fileOut.close();
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(rootPane, "Upd");
+            }
         }
         limpiar();
+        FormPrincipal selcam = new FormPrincipal();
+        selcam.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btn_editarEstudianteActionPerformed
 
     private void btn_elimiarEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_elimiarEstudianteActionPerformed
@@ -657,5 +733,7 @@ public class FormEstudiante extends javax.swing.JFrame {
     private javax.swing.JTextField txt_InumeroCarnetEstudiante;
     private javax.swing.JTextField txt_IsedeEstudiante;
     private javax.swing.JTextField txt_ItelefonoEstudiante;
+    private javax.swing.JTextField txt_Remplazar;
+    private javax.swing.JComboBox<String> txt_eleccion;
     // End of variables declaration//GEN-END:variables
 }

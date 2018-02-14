@@ -1,3 +1,6 @@
-Marcos,Marcos,Marcos,Marcos,Marcos,Marcos,Marcos,SI
-Pedro,Pedro,Pedro,Pedro,Pedro,Pedro,Pedro,SI
-Lucas,Lucas,Lucas,Lucas,Lucas,Lucas,Lucas,NO
+carlos,carlos,carlos,carlos,carlos,carlos,carlos,SI
+w,w,w,w,w,w,w,SI
+rrrrrrrr,rrrrrrrr,rrrrrrrr,rrrrrrrr,rrrrrrrr,rrrrrrrr,rrrrrrrr,NO
+re,re,re,re,re,re,re,SI
+Segio,perez,marcos.perez,22266611,Desamparados,303030,Ing. Sistemas,SI
+Emanuel,lopez,dsafds,fdsfsddsf,fdsfsda,affdsa,afdsfds,NO
