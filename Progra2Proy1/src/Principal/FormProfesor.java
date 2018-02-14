@@ -107,11 +107,21 @@ public class FormProfesor extends javax.swing.JFrame {
 
         jLabel16.setText("Nombre:");
 
+        txt_CnombreProfesor.setEditable(false);
+
+        txt_CapellidoProfesor.setEditable(false);
+
         jLabel17.setText("Apellido:");
 
         jLabel18.setText("Direccion  de Correo:");
 
+        txt_CemailProfesor.setEditable(false);
+
+        txt_CtelefonoProfesor.setEditable(false);
+
         jLabel19.setText("Telefono: ");
+
+        txt_CcodProfesor.setEditable(false);
 
         btn_buscarProfesor.setText("Buscar");
         btn_buscarProfesor.addActionListener(new java.awt.event.ActionListener() {
@@ -176,6 +186,8 @@ public class FormProfesor extends javax.swing.JFrame {
         });
 
         jLabel8.setText("Sede:");
+
+        txt_CsedeProfesor.setEditable(false);
 
         btn_CargarDatosProfesores.setText("Cargar data");
         btn_CargarDatosProfesores.addActionListener(new java.awt.event.ActionListener() {
@@ -330,39 +342,39 @@ public class FormProfesor extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(29, 29, 29)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel7))
-                        .addGap(46, 46, 46)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_IcodProfesor)
-                            .addComponent(txt_InombreProfesor, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                            .addComponent(txt_IapellidoProfesor)
-                            .addComponent(txt_IemailProfesor)
-                            .addComponent(txt_ItelefonoProfesor)
-                            .addComponent(txt_IsedeProfesor)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_IcantidProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(bntGuardarProfesor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_volver5)))
-                .addContainerGap())
+                        .addComponent(txt_IcantidProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                            .addComponent(bntGuardarProfesor)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_volver5))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel7))
+                            .addGap(46, 46, 46)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txt_IsedeProfesor, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txt_ItelefonoProfesor, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txt_IemailProfesor, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txt_IapellidoProfesor, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txt_InombreProfesor, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txt_IcodProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txt_InombreProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -394,7 +406,7 @@ public class FormProfesor extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bntGuardarProfesor)
                     .addComponent(btn_volver5))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(22, 22, 22))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
