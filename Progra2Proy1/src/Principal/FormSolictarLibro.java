@@ -5,12 +5,41 @@
  */
 package Principal;
 
-/**
- *
- * @author cperezme
- */
-public class FormSolictarLibro extends javax.swing.JFrame {
+import Clases.Estudiante;
+import Clases.Funcionario;
+import Clases.Libro;
+import Clases.MasterClass;
+import Clases.Profesor;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
+public class FormSolictarLibro extends javax.swing.JFrame {
+    MasterClass datos = new MasterClass();
+    
+    public void imprimir(Estudiante arg){
+        txt_Apellido.setText(arg.getApellido());
+        txt_Email.setText(arg.getDireccionCorreo());
+        txt_Telefono.setText(arg.getTelefono());
+        txt_Cede.setText(arg.getSede());
+    }
+    public void imprimir(Funcionario arg){
+        txt_Apellido.setText(arg.getApellido());
+        txt_Email.setText(arg.getDireccionCorreo());
+        txt_Telefono.setText(arg.getTelefono());
+        txt_Cede.setText(arg.getSede());
+    }
+    public void imprimir(Profesor arg){
+        txt_Apellido.setText(arg.getApellido());
+        txt_Email.setText(arg.getDireccionCorreo());
+        txt_Telefono.setText(arg.getTelefono());
+        txt_Cede.setText(arg.getSede());
+    }
+    
     /**
      * Creates new form SolictarLibro
      */
@@ -29,24 +58,26 @@ public class FormSolictarLibro extends javax.swing.JFrame {
 
         btn_atras = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txt_Nombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txt_Apellido = new javax.swing.JTextField();
+        txt_Email = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txt_Telefono = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txt_Cede = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        txt_TituloLibro = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        txt_Accion = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         btn_enviarSolicitud = new javax.swing.JButton();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        txt_TipoPersona = new javax.swing.JComboBox<>();
+        btn_buscarSolicitarLibro = new javax.swing.JButton();
+        btn_CargarDatos = new javax.swing.JButton();
+        txt_CantidadLibros = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(600, 300));
@@ -74,99 +105,135 @@ public class FormSolictarLibro extends javax.swing.JFrame {
 
         jLabel8.setText("Cantidad Libros: ");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Entregar Libro", "Solicitar Libro" }));
+        txt_Accion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Entregar Libro", "Solicitar Libro" }));
 
         jLabel9.setText("Accion:");
 
         btn_enviarSolicitud.setText("Enviar Solicitud");
+        btn_enviarSolicitud.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_enviarSolicitudActionPerformed(evt);
+            }
+        });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        txt_TipoPersona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Funcionario", "Estudiante", "Profesor" }));
+
+        btn_buscarSolicitarLibro.setText("Buscar");
+        btn_buscarSolicitarLibro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscarSolicitarLibroActionPerformed(evt);
+            }
+        });
+
+        btn_CargarDatos.setText("Cargar Data");
+        btn_CargarDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CargarDatosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btn_enviarSolicitud)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_atras))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField7))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txt_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_Email, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel7)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(txt_TituloLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(3, 3, 3)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btn_buscarSolicitarLibro)
+                                    .addGap(56, 56, 56)
+                                    .addComponent(btn_enviarSolicitud)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btn_atras))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel8)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txt_CantidadLibros, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jLabel9)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txt_Accion, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txt_TipoPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                        .addComponent(btn_CargarDatos)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_Cede, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txt_TipoPersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_CargarDatos))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(txt_Cede, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(txt_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(txt_TituloLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
+                    .addComponent(txt_Accion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
+                    .addComponent(txt_CantidadLibros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_enviarSolicitud)
-                    .addComponent(btn_atras))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_buscarSolicitarLibro)
+                    .addComponent(btn_atras)
+                    .addComponent(btn_enviarSolicitud))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
@@ -177,6 +244,165 @@ public class FormSolictarLibro extends javax.swing.JFrame {
         selcam.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_atrasActionPerformed
+
+    private void btn_buscarSolicitarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarSolicitarLibroActionPerformed
+        String TipoPersona = txt_TipoPersona.getSelectedItem().toString();
+        if(TipoPersona.equalsIgnoreCase("Funcionario")){
+            imprimir(datos.buscarF(txt_Nombre.getText()));
+        }else if(TipoPersona.equalsIgnoreCase("Estudiante")){
+            imprimir(datos.buscarE(txt_Nombre.getText()));  
+        }else if(TipoPersona.equalsIgnoreCase("Profesor")){
+            imprimir(datos.buscarP(txt_Nombre.getText()));
+        }
+    }//GEN-LAST:event_btn_buscarSolicitarLibroActionPerformed
+
+    private void btn_CargarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CargarDatosActionPerformed
+        String TipoPersona = txt_TipoPersona.getSelectedItem().toString();
+        if(TipoPersona.equalsIgnoreCase("Funcionario")){
+            Funcionario funcionario = new Funcionario();
+            String linea;FileReader f = null;
+            try {
+                f = new FileReader("Funcionarios.txt");
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(MasterClass.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try (BufferedReader b = new BufferedReader(f)) {
+                while ((linea = b.readLine()) != null) {
+                    String orden[] = linea.split(",");
+                    funcionario.setNombre(orden[0]);
+                    funcionario.setApellido(orden[1]);
+                    funcionario.setDireccionCorreo(orden[2]);
+                    funcionario.setTelefono(orden[3]);
+                    funcionario.setSede(orden[4]);
+                    funcionario.setNumeroEmpleado(orden[5]);
+                    funcionario.setPuesto(orden[6]);
+                    funcionario.setDepartamento(orden[7]);
+                    datos.guardarF(funcionario.getNombre(), funcionario.getApellido(), 
+                        funcionario.getDireccionCorreo(), funcionario.getTelefono(),
+                        funcionario.getSede(), funcionario.getNumeroEmpleado(),
+                        funcionario.getPuesto(), funcionario.getDepartamento());
+                }
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+        }else if(TipoPersona.equalsIgnoreCase("Estudiante")){
+            Estudiante estudiante = new Estudiante();
+            String linea;FileReader f = null;
+            try {
+                f = new FileReader("Estudiantes.txt");
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(MasterClass.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try (BufferedReader b = new BufferedReader(f)) {
+                while ((linea = b.readLine()) != null) {
+                    String orden[] = linea.split(",");
+                    estudiante.setNombre(orden[0]);
+                    estudiante.setApellido(orden[1]);
+                    estudiante.setDireccionCorreo(orden[2]);
+                    estudiante.setTelefono(orden[3]);
+                    estudiante.setSede(orden[4]);
+                    estudiante.setNumeroCarnet(orden[5]);
+                    estudiante.setCarreraCursando(orden[6]);
+                    estudiante.setEstatus(orden[7]);
+
+                    datos.guardarE(estudiante.getNombre(), estudiante.getApellido(), 
+                        estudiante.getDireccionCorreo(), estudiante.getTelefono(),
+                        estudiante.getSede(), estudiante.getNumeroCarnet(),
+                        estudiante.getCarreraCursando(), estudiante.getEstatus());
+                }
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+        }else if(TipoPersona.equalsIgnoreCase("Profesor")){
+            Profesor profesor = new Profesor();
+            String linea;FileReader f = null;
+            try {
+                f = new FileReader("profesores.txt");
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(MasterClass.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try (BufferedReader b = new BufferedReader(f)) {
+                while ((linea = b.readLine()) != null) {
+                    String orden[] = linea.split(",");
+                    profesor.setNombre(orden[0]);
+                    profesor.setApellido(orden[1]);
+                    profesor.setDireccionCorreo(orden[2]);
+                    profesor.setTelefono(orden[3]);
+                    profesor.setSede(orden[4]);
+                    profesor.setCodigoMarca(orden[5]);
+                    profesor.setCantidadCursosqueImparte(orden[6]);
+                    datos.guardarP(profesor.getNombre(), profesor.getApellido(), 
+                        profesor.getDireccionCorreo(), profesor.getTelefono(),
+                        profesor.getSede(), profesor.getCodigoMarca(),
+                        profesor.getCantidadCursosqueImparte());
+                }
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+        }      
+    }//GEN-LAST:event_btn_CargarDatosActionPerformed
+
+    private void btn_enviarSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enviarSolicitudActionPerformed
+        boolean encontrado=false;  
+        Libro libro = new Libro();
+        String linea;FileReader f = null;
+        try {
+            f = new FileReader("Libros.txt");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(MasterClass.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try (BufferedReader b = new BufferedReader(f)) {
+            while ((linea = b.readLine()) != null) {
+                String orden[] = linea.split(",");
+                libro.setNombreLibro(orden[0]);
+                libro.setAutor(orden[1]);
+                libro.setFechaPublicacion(orden[2]);
+                libro.setEditorial(orden[3]);
+                libro.setCantidadLibrosDisponibles(orden[4]);
+               
+                if(libro.getNombreLibro().equalsIgnoreCase(txt_TituloLibro.getText())){
+                    encontrado=true;
+                }                
+            }  
+            
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        
+        /*txt_Apellido.getText();
+        txt_Email.getText();
+        txt_Telefono.getText();
+        txt_Cede.getText();
+        txt_TipoPersona.getSelectedItem().toString();
+        txt_TituloLibro.getText();
+        txt_CantidadLibros.getText();
+        txt_Accion.getSelectedItem().toString();*/
+        if(encontrado){
+            String TipoPersona = txt_TipoPersona.getSelectedItem().toString();
+                    
+            String valor = txt_CantidadLibros.getValue().toString();
+            int cantidad = Integer.parseInt(valor);  
+
+            if(TipoPersona.equalsIgnoreCase("Funcionario")){
+                Funcionario obF = new Funcionario();
+                obF.cantidadLibrosPrestados(cantidad, TipoPersona);
+            }else if(TipoPersona.equalsIgnoreCase("Estudiante")){
+                Estudiante obE = new Estudiante();
+                System.out.print(obE.cantidadLibrosPrestados(cantidad, TipoPersona));
+                JOptionPane.showMessageDialog(null, "Solicitud enviada");
+                
+            }else if(TipoPersona.equalsIgnoreCase("Profesor")){
+                imprimir(datos.buscarP(txt_Nombre.getText()));
+            }
+        }else{
+           JOptionPane.showMessageDialog(null, "Libro no encontrado"); 
+        }
+
+    }//GEN-LAST:event_btn_enviarSolicitudActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,10 +441,10 @@ public class FormSolictarLibro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_CargarDatos;
     private javax.swing.JButton btn_atras;
+    private javax.swing.JButton btn_buscarSolicitarLibro;
     private javax.swing.JButton btn_enviarSolicitud;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -228,12 +454,14 @@ public class FormSolictarLibro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JComboBox<String> txt_Accion;
+    private javax.swing.JTextField txt_Apellido;
+    private javax.swing.JSpinner txt_CantidadLibros;
+    private javax.swing.JTextField txt_Cede;
+    private javax.swing.JTextField txt_Email;
+    private javax.swing.JTextField txt_Nombre;
+    private javax.swing.JTextField txt_Telefono;
+    private javax.swing.JComboBox<String> txt_TipoPersona;
+    private javax.swing.JTextField txt_TituloLibro;
     // End of variables declaration//GEN-END:variables
 }

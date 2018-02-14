@@ -102,6 +102,7 @@ txt_Email
 txt_Telefono
 txt_Cede
 txt_TipoPersona
+txt_TituloLibro
 txt_CantidadLibros
 txt_Accion
 #################################################################

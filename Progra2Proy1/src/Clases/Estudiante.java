@@ -7,6 +7,9 @@ public class Estudiante extends Persona{
     private String estatus;
     private Estudiante siguente;
     private Estudiante anterior;
+    
+    public int librosprestado, resultado;
+    private String accion;
 
     /*public Estudiante(String nombre, String apellido, String direccionCorreo, 
                String telefono, String sede, String numeroCarnet, String carreraCursando, 
@@ -17,8 +20,24 @@ public class Estudiante extends Persona{
         this.estatus = estatus;
     }*/
     
-    public void cantidadLibrosPrestados(){
-        //Codigo pendiente.
+    @Override
+    public int cantidadLibrosPrestados(int cantidadLibros, String accion){
+        
+           resultado = librosprestado+cantidadLibros; 
+           
+           
+          return resultado;   
+        //cantidadLibrosalmacenada=cantidadLibrosalmacenada+cantidadLibros;
+        /*if(accion.equalsIgnoreCase("Entregar Libro")){
+            
+            return librosprestado=librosprestado-cantidadLibros;
+            
+        }else if(accion.equalsIgnoreCase("Solicitar Libro")){
+           return librosprestado=librosprestado+cantidadLibros;
+        }else{
+            return cantidadLibros;
+        }*/
+
     }
     
     public String getNumeroCarnet() {

@@ -14,14 +14,32 @@ public class Profesor extends Persona{
         this.codigoMarca = codigoMarca;
         this.cantidadCursosqueImparte = cantidadCursosqueImparte;
     }*/
+    
+    @Override
+    public int cantidadLibrosPrestados(int cantidadLibros, String accion){
+        
+           //resultado = librosprestado+cantidadLibros; 
+           
+           
+         // return resultado;   
+        //cantidadLibrosalmacenada=cantidadLibrosalmacenada+cantidadLibros;
+        /*if(accion.equalsIgnoreCase("Entregar Libro")){
+            
+            return librosprestado=librosprestado-cantidadLibros;
+            
+        }else if(accion.equalsIgnoreCase("Solicitar Libro")){
+           return librosprestado=librosprestado+cantidadLibros;
+        }else{
+            return cantidadLibros;
+        }*/
+        return cantidadLibros;
+
+    }
 
     public String getCodigoMarca() {
         return codigoMarca;
     }
     
-    public void cantidadLibrosPrestados(){
-        //Codigo pendiente.
-    }
 
     public void setCodigoMarca(String codigoMarca) {
         this.codigoMarca = codigoMarca;

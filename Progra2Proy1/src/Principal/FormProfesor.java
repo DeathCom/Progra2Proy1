@@ -534,7 +534,7 @@ public class FormProfesor extends javax.swing.JFrame {
         Profesor profesor = new Profesor();
         String linea;FileReader f = null;
         try {
-            f = new FileReader("Funcionarios.txt");
+            f = new FileReader("profesores.txt");
         } catch (FileNotFoundException ex) {
             Logger.getLogger(MasterClass.class.getName()).log(Level.SEVERE, null, ex);
         }

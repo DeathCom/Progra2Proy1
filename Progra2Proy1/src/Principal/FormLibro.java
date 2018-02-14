@@ -976,7 +976,7 @@ public class FormLibro extends javax.swing.JFrame {
         Autor autor = new Autor();
         String linea;FileReader f = null;
         try {
-            f = new FileReader("Funcionarios.txt");
+            f = new FileReader("Autores.txt");
         } catch (FileNotFoundException ex) {
             Logger.getLogger(MasterClass.class.getName()).log(Level.SEVERE, null, ex);
         }
