@@ -122,6 +122,8 @@ public class FormLibro extends javax.swing.JFrame {
         txt_IfechaPublicacionLibro = new javax.swing.JTextField();
         txt_IEditorialLibro = new javax.swing.JTextField();
         btn_volver2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        txt_IcantidadLibrosB = new javax.swing.JSpinner();
         jPanel3 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         txt_CnombreAutor = new javax.swing.JTextField();
@@ -402,6 +404,8 @@ public class FormLibro extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Cantidad Libros Biblioteca");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -409,12 +413,8 @@ public class FormLibro extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_IcantidadLibros, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                             .addComponent(bntGuardarLibro)
                             .addGap(168, 168, 168)
                             .addComponent(btn_volver2))
@@ -429,7 +429,15 @@ public class FormLibro extends javax.swing.JFrame {
                                 .addComponent(txt_IfechaPublicacionLibro)
                                 .addComponent(txt_IAutorLibro)
                                 .addComponent(txt_InombreLibro)
-                                .addComponent(txt_IEditorialLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txt_IEditorialLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel1))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_IcantidadLibrosB, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_IcantidadLibros, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(54, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -455,11 +463,15 @@ public class FormLibro extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(txt_IcantidadLibros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txt_IcantidadLibrosB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bntGuardarLibro)
                     .addComponent(btn_volver2))
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addGap(73, 73, 73))
         );
 
         jTabbedPane4.addTab("Ingresar Libro", jPanel2);
@@ -1198,6 +1210,7 @@ public class FormLibro extends javax.swing.JFrame {
     private javax.swing.JButton btn_volver2;
     private javax.swing.JButton btn_volver3;
     private javax.swing.JButton btn_volver4;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -1247,6 +1260,7 @@ public class FormLibro extends javax.swing.JFrame {
     private javax.swing.JTextField txt_IapellidoAutor;
     private javax.swing.JComboBox<String> txt_IaunVivoAutor;
     private javax.swing.JSpinner txt_IcantidadLibros;
+    private javax.swing.JSpinner txt_IcantidadLibrosB;
     private javax.swing.JSpinner txt_IcantidadLibrosPubAutor;
     private javax.swing.JTextField txt_IemailAutor;
     private javax.swing.JTextField txt_IfechaPublicacionLibro;

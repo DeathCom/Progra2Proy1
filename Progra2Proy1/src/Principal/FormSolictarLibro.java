@@ -4,14 +4,15 @@
  * and open the template in the editor.
  */
 package Principal;
-
 import Clases.Estudiante;
 import Clases.Funcionario;
 import Clases.Libro;
+import Clases.MasterArchivos;
 import Clases.MasterClass;
 import Clases.Profesor;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -38,6 +39,10 @@ public class FormSolictarLibro extends javax.swing.JFrame {
         txt_Email.setText(arg.getDireccionCorreo());
         txt_Telefono.setText(arg.getTelefono());
         txt_Cede.setText(arg.getSede());
+    }
+    public void imprimir(Libro arg){
+        txt_libroResumen.setText(arg.getNombreLibro());
+        txt_librosAlmacenados.setText(arg.getCantidadLibrosDisponibles());
     }
     
     /**
@@ -78,6 +83,17 @@ public class FormSolictarLibro extends javax.swing.JFrame {
         btn_buscarSolicitarLibro = new javax.swing.JButton();
         btn_CargarDatos = new javax.swing.JButton();
         txt_CantidadLibros = new javax.swing.JSpinner();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel10 = new javax.swing.JLabel();
+        txt_librosAlmacenados = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        txt_librosDisponibles = new javax.swing.JTextField();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel12 = new javax.swing.JLabel();
+        txt_libroResumen = new javax.swing.JTextField();
+        jSeparator3 = new javax.swing.JSeparator();
+        BuscarTitulo = new javax.swing.JButton();
+        txt_librosAsignadosP = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(600, 300));
@@ -95,9 +111,17 @@ public class FormSolictarLibro extends javax.swing.JFrame {
 
         jLabel3.setText("Apellido:");
 
+        txt_Apellido.setEditable(false);
+
+        txt_Email.setEditable(false);
+
         jLabel4.setText("Telefono:");
 
+        txt_Telefono.setEditable(false);
+
         jLabel5.setText("Cede:");
+
+        txt_Cede.setEditable(false);
 
         jLabel6.setText("Tipo Persona:");
 
@@ -118,7 +142,7 @@ public class FormSolictarLibro extends javax.swing.JFrame {
 
         txt_TipoPersona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Funcionario", "Estudiante", "Profesor" }));
 
-        btn_buscarSolicitarLibro.setText("Buscar");
+        btn_buscarSolicitarLibro.setText("Buscar Persona");
         btn_buscarSolicitarLibro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_buscarSolicitarLibroActionPerformed(evt);
@@ -132,67 +156,121 @@ public class FormSolictarLibro extends javax.swing.JFrame {
             }
         });
 
+        jLabel10.setText("Libros de Biblioteca:");
+
+        txt_librosAlmacenados.setEditable(false);
+
+        jLabel11.setText("Libros Disponibles:");
+
+        txt_librosDisponibles.setEditable(false);
+
+        jLabel12.setText("Solicitud Resumen:");
+
+        txt_libroResumen.setEditable(false);
+        txt_libroResumen.setEnabled(false);
+
+        BuscarTitulo.setText("Buscar Titulo");
+        BuscarTitulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarTituloActionPerformed(evt);
+            }
+        });
+
+        txt_librosAsignadosP.setEditable(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator3)
+            .addComponent(jSeparator1)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txt_Email, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txt_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txt_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(txt_librosAsignadosP)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btn_buscarSolicitarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txt_Cede, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_Email, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel7)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(txt_TituloLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(3, 3, 3)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btn_buscarSolicitarLibro)
-                                    .addGap(56, 56, 56)
-                                    .addComponent(btn_enviarSolicitud)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btn_atras))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel8)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(txt_CantidadLibros, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jLabel9)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txt_Accion, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txt_TipoPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_CargarDatos)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btn_CargarDatos)))
+                .addGap(0, 27, Short.MAX_VALUE))
+            .addComponent(jSeparator2)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(jLabel12))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(135, 135, 135)
+                        .addComponent(BuscarTitulo)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_TituloLibro))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txt_librosAlmacenados)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt_librosDisponibles, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(10, 10, 10))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txt_libroResumen)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_CantidadLibros, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel9)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_Accion, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_Cede, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32))))
+                        .addComponent(btn_enviarSolicitud)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_atras)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,6 +281,8 @@ public class FormSolictarLibro extends javax.swing.JFrame {
                     .addComponent(txt_TipoPersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_CargarDatos))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txt_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -217,23 +297,41 @@ public class FormSolictarLibro extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txt_Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(txt_Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_buscarSolicitarLibro)
+                    .addComponent(txt_librosAsignadosP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(txt_TituloLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(txt_librosAlmacenados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11)
+                    .addComponent(txt_librosDisponibles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addComponent(BuscarTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel12)
+                .addGap(3, 3, 3)
+                .addComponent(txt_libroResumen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
-                    .addComponent(txt_Accion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(txt_CantidadLibros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txt_CantidadLibros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel9)
+                        .addComponent(txt_Accion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_buscarSolicitarLibro)
-                    .addComponent(btn_atras)
-                    .addComponent(btn_enviarSolicitud))
-                .addContainerGap(36, Short.MAX_VALUE))
+                    .addComponent(btn_enviarSolicitud)
+                    .addComponent(btn_atras))
+                .addContainerGap())
         );
 
         pack();
@@ -342,11 +440,34 @@ public class FormSolictarLibro extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, e);
             }
 
-        }      
+        }  
+        //############Cargar datos de Libro##########################
+        Libro libro = new Libro();
+        String linea;FileReader f = null;
+        try {
+            f = new FileReader("Libros.txt");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(MasterClass.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try (BufferedReader b = new BufferedReader(f)) {
+            while ((linea = b.readLine()) != null) {
+                String orden[] = linea.split(",");
+                libro.setNombreLibro(orden[0]);
+                libro.setAutor(orden[1]);
+                libro.setFechaPublicacion(orden[2]);
+                libro.setEditorial(orden[3]);
+                libro.setCantidadLibrosDisponibles(orden[4]);
+                datos.guardarL(libro.getNombreLibro(), libro.getAutor(), 
+                    libro.getFechaPublicacion(), libro.getEditorial(),
+                    libro.getCantidadLibrosDisponibles());
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_btn_CargarDatosActionPerformed
 
     private void btn_enviarSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enviarSolicitudActionPerformed
-        boolean encontrado=false;  
+        /*boolean encontrado=false;  
         Libro libro = new Libro();
         String linea;FileReader f = null;
         try {
@@ -371,16 +492,6 @@ public class FormSolictarLibro extends javax.swing.JFrame {
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, e);
         }
-        
-        
-        /*txt_Apellido.getText();
-        txt_Email.getText();
-        txt_Telefono.getText();
-        txt_Cede.getText();
-        txt_TipoPersona.getSelectedItem().toString();
-        txt_TituloLibro.getText();
-        txt_CantidadLibros.getText();
-        txt_Accion.getSelectedItem().toString();*/
         if(encontrado){
             String TipoPersona = txt_TipoPersona.getSelectedItem().toString();
                     
@@ -400,9 +511,75 @@ public class FormSolictarLibro extends javax.swing.JFrame {
             }
         }else{
            JOptionPane.showMessageDialog(null, "Libro no encontrado"); 
+        }*/
+        MasterArchivos reserva = new MasterArchivos();
+        if(txt_Accion.getSelectedItem().toString().equalsIgnoreCase("Solicitar Libro")){
+            
+            Libro li = new Libro();
+            int c1 = Integer.parseInt(txt_librosAlmacenados.getText());
+            int c2 = Integer.parseInt(txt_CantidadLibros.getValue().toString());
+            
+            int operacion = c1-c2;
+            String resto = Integer.toString(operacion);
+            
+            
+            
+            
+            reserva.GuardarArchivo(txt_Nombre.getText(), txt_libroResumen.getText(),txt_CantidadLibros.getValue().toString(), resto);
+            JOptionPane.showMessageDialog(null, "Solicitud Recibida");
+            
+        }else{
+            try{
+                BufferedReader file = new BufferedReader(new FileReader("Reservaciones.txt"));
+                String line;String input = "";
+                while((line = file.readLine()) != null){
+                    /* Podemos verificar si es Usuario_1 y \r\n es para hacer el 
+                      Salto de Línea y tener el formato original */
+                    if(line.contains(txt_Nombre.getText())){
+                        input += line.replaceAll(txt_librosAsignadosP.getText(),txt_CantidadLibros.getValue().toString())+"\r\n";
+                        //input += "\n";
+                    }else{
+                        input += line+"\r\n";
+                    }
+                        
+                }
+                FileOutputStream fileOut = new FileOutputStream("Reservaciones.txt");
+                fileOut.write(input.getBytes());
+                fileOut.close();
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(rootPane, "Dato no modificado");
+            }
         }
+        //limpiarL();
+        FormPrincipal selcam = new FormPrincipal();
+        selcam.setVisible(true);
+        this.dispose();
 
     }//GEN-LAST:event_btn_enviarSolicitudActionPerformed
+
+    private void BuscarTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarTituloActionPerformed
+        String linea;FileReader f = null;
+        String restante ="", usuario="";
+        try {
+            f = new FileReader("Reservaciones.txt");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(MasterClass.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try (BufferedReader b = new BufferedReader(f)) {
+            while ((linea = b.readLine()) != null) {
+                String orden[] = linea.split(",");
+                usuario=orden[2];
+                restante=orden[3];
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        
+        imprimir(datos.buscarL(txt_TituloLibro.getText()));
+        txt_librosAsignadosP.setText(usuario);
+        txt_librosDisponibles.setText(restante);
+    }//GEN-LAST:event_BuscarTituloActionPerformed
 
     /**
      * @param args the command line arguments
@@ -441,11 +618,15 @@ public class FormSolictarLibro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BuscarTitulo;
     private javax.swing.JButton btn_CargarDatos;
     private javax.swing.JButton btn_atras;
     private javax.swing.JButton btn_buscarSolicitarLibro;
     private javax.swing.JButton btn_enviarSolicitud;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -454,6 +635,9 @@ public class FormSolictarLibro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JComboBox<String> txt_Accion;
     private javax.swing.JTextField txt_Apellido;
     private javax.swing.JSpinner txt_CantidadLibros;
@@ -463,5 +647,9 @@ public class FormSolictarLibro extends javax.swing.JFrame {
     private javax.swing.JTextField txt_Telefono;
     private javax.swing.JComboBox<String> txt_TipoPersona;
     private javax.swing.JTextField txt_TituloLibro;
+    private javax.swing.JTextField txt_libroResumen;
+    private javax.swing.JTextField txt_librosAlmacenados;
+    private javax.swing.JTextField txt_librosAsignadosP;
+    private javax.swing.JTextField txt_librosDisponibles;
     // End of variables declaration//GEN-END:variables
 }

@@ -107,4 +107,5 @@ txt_CantidadLibros
 txt_Accion
 #################################################################
 Libros Asignados = txt_CLibosAsignados
-btn_eleccion
+txt_eleccion
+txt_librosAsignadosP
