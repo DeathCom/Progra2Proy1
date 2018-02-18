@@ -91,16 +91,29 @@ public class MasterArchivos {
            JOptionPane.showMessageDialog(null, e);
         }
     }
-    public void GuardarArchivo(String nombre, String titulo, String cantlib, String resto){
-        String Rnombre=nombre, Rtitulo=titulo, Rcantlib=cantlib, Rresto=resto;
+    public void GuardarArchivo(String nombre, String titulo, String cantlib){
+        String Rnombre=nombre, Rtitulo=titulo, Rcantlib=cantlib;
         try {
             FileWriter file = new FileWriter("Reservaciones.txt", true);
             BufferedWriter buffer = new BufferedWriter(file);
             PrintWriter printer = new PrintWriter(buffer);
             printer.print(Rnombre);
             printer.print(","+Rtitulo);
-            printer.print(","+Rcantlib);
-            printer.print(","+resto+"\r\n");
+            printer.print(","+Rcantlib+"\r\n");
+            printer.close();
+        }catch(Exception e){
+           JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
+    public void GuardarArchivolibro(String nombrelibro, String librosDisponibles){
+        String Rnombrelibro=nombrelibro, RlibrosDisponibles=librosDisponibles;
+        try {
+            FileWriter file = new FileWriter("Reservaciones2.txt", true);
+            BufferedWriter buffer = new BufferedWriter(file);
+            PrintWriter printer = new PrintWriter(buffer);
+            printer.print(Rnombrelibro);
+            printer.print(","+RlibrosDisponibles+"\r\n");
             printer.close();
         }catch(Exception e){
            JOptionPane.showMessageDialog(null, e);

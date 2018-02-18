@@ -1,1 +1,1 @@
-segio,El asco,2,12
+marco,El asco,0

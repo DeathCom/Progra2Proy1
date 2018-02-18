@@ -4,12 +4,14 @@
  * and open the template in the editor.
  */
 package Principal;
+import Clases.DataSolicitudes;
 import Clases.Estudiante;
 import Clases.Funcionario;
 import Clases.Libro;
 import Clases.MasterArchivos;
 import Clases.MasterClass;
 import Clases.Profesor;
+import Clases.Solicitudes;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -21,6 +23,7 @@ import javax.swing.JOptionPane;
 
 public class FormSolictarLibro extends javax.swing.JFrame {
     MasterClass datos = new MasterClass();
+    DataSolicitudes data = new DataSolicitudes();
     
     public void imprimir(Estudiante arg){
         txt_Apellido.setText(arg.getApellido());
@@ -41,8 +44,12 @@ public class FormSolictarLibro extends javax.swing.JFrame {
         txt_Cede.setText(arg.getSede());
     }
     public void imprimir(Libro arg){
+        txt_TituloLibro.setText(arg.getNombreLibro());
         txt_libroResumen.setText(arg.getNombreLibro());
         txt_librosAlmacenados.setText(arg.getCantidadLibrosDisponibles());
+    }
+     public void imprimir(Solicitudes arg){
+       txt_librosAsignadosP.setText(arg.getLibAsignados());
     }
     
     /**
@@ -94,6 +101,10 @@ public class FormSolictarLibro extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         BuscarTitulo = new javax.swing.JButton();
         txt_librosAsignadosP = new javax.swing.JTextField();
+        btn_botonBuscarlibroSiguiente = new javax.swing.JButton();
+        btn_botonBuscarlibroAnterior = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(600, 300));
@@ -178,6 +189,29 @@ public class FormSolictarLibro extends javax.swing.JFrame {
 
         txt_librosAsignadosP.setEditable(false);
 
+        btn_botonBuscarlibroSiguiente.setText(">");
+        btn_botonBuscarlibroSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_botonBuscarlibroSiguienteActionPerformed(evt);
+            }
+        });
+
+        btn_botonBuscarlibroAnterior.setText("<");
+        btn_botonBuscarlibroAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_botonBuscarlibroAnteriorActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("Asignados a persona:");
+
+        jButton1.setText("Verificar Estudiante");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -187,7 +221,7 @@ public class FormSolictarLibro extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
+                        .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -197,19 +231,15 @@ public class FormSolictarLibro extends javax.swing.JFrame {
                                         .addComponent(txt_Email, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txt_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGap(8, 8, 8)
+                                        .addComponent(txt_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(10, 10, 10)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(jLabel4)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(txt_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(txt_librosAsignadosP)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btn_buscarSolicitarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(btn_buscarSolicitarLibro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -226,16 +256,6 @@ public class FormSolictarLibro extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_CargarDatos)))
                 .addGap(0, 27, Short.MAX_VALUE))
-            .addComponent(jSeparator2)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addComponent(jLabel12))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(135, 135, 135)
-                        .addComponent(BuscarTitulo)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,14 +265,24 @@ public class FormSolictarLibro extends javax.swing.JFrame {
                                 .addComponent(jLabel7)
                                 .addGap(18, 18, 18)
                                 .addComponent(txt_TituloLibro))
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txt_librosAlmacenados)
-                                .addGap(18, 18, 18)
+                                .addGap(35, 35, 35)
                                 .addComponent(jLabel11)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txt_librosDisponibles, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txt_librosDisponibles, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txt_librosAsignadosP, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BuscarTitulo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_botonBuscarlibroAnterior)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_botonBuscarlibroSiguiente)))
                         .addGap(10, 10, 10))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(txt_libroResumen)
@@ -270,7 +300,16 @@ public class FormSolictarLibro extends javax.swing.JFrame {
                         .addComponent(btn_enviarSolicitud)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_atras)
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(71, 71, 71)
+                                .addComponent(jLabel12)
+                                .addContainerGap())))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -298,8 +337,7 @@ public class FormSolictarLibro extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txt_Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_buscarSolicitarLibro)
-                    .addComponent(txt_librosAsignadosP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_buscarSolicitarLibro))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -312,13 +350,23 @@ public class FormSolictarLibro extends javax.swing.JFrame {
                     .addComponent(txt_librosAlmacenados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11)
                     .addComponent(txt_librosDisponibles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addComponent(BuscarTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BuscarTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_botonBuscarlibroSiguiente)
+                    .addComponent(btn_botonBuscarlibroAnterior)
+                    .addComponent(txt_librosAsignadosP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel12)
-                .addGap(3, 3, 3)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel12)
+                        .addGap(3, 3, 3))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(txt_libroResumen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -356,6 +404,7 @@ public class FormSolictarLibro extends javax.swing.JFrame {
 
     private void btn_CargarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CargarDatosActionPerformed
         String TipoPersona = txt_TipoPersona.getSelectedItem().toString();
+        
         if(TipoPersona.equalsIgnoreCase("Funcionario")){
             Funcionario funcionario = new Funcionario();
             String linea;FileReader f = null;
@@ -464,6 +513,27 @@ public class FormSolictarLibro extends javax.swing.JFrame {
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, e);
         }
+        //############Cargar datos de Solicitudes##########################
+        Solicitudes solicitud = new Solicitudes();
+        String lineas;FileReader file = null;
+        try {
+            file = new FileReader("Reservaciones.txt");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(DataSolicitudes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try (BufferedReader b = new BufferedReader(file)) {
+            while ((lineas = b.readLine()) != null) {
+                String orden[] = lineas.split(",");
+                solicitud.setNombSolicitante(orden[0]);
+                solicitud.setNombLibro(orden[1]);
+                solicitud.setLibAsignados(orden[2]);
+
+                data.guardar(solicitud.getNombSolicitante(), solicitud.getNombLibro(), 
+                        solicitud.getLibAsignados());
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_btn_CargarDatosActionPerformed
 
     private void btn_enviarSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enviarSolicitudActionPerformed
@@ -514,21 +584,26 @@ public class FormSolictarLibro extends javax.swing.JFrame {
         }*/
         MasterArchivos reserva = new MasterArchivos();
         if(txt_Accion.getSelectedItem().toString().equalsIgnoreCase("Solicitar Libro")){
-            
-            Libro li = new Libro();
+            //Libro li = new Libro();
             int c1 = Integer.parseInt(txt_librosAlmacenados.getText());
             int c2 = Integer.parseInt(txt_CantidadLibros.getValue().toString());
             
-            int operacion = c1-c2;
-            String resto = Integer.toString(operacion);
+            String resto = Integer.toString(c1-c2);
             
+            reserva.GuardarArchivo(txt_Nombre.getText(),txt_libroResumen.getText(),txt_CantidadLibros.getValue().toString());
+                   
             
-            
-            
-            reserva.GuardarArchivo(txt_Nombre.getText(), txt_libroResumen.getText(),txt_CantidadLibros.getValue().toString(), resto);
+            reserva.GuardarArchivolibro(txt_libroResumen.getText(), resto);
             JOptionPane.showMessageDialog(null, "Solicitud Recibida");
             
-        }else{
+        }else if(txt_Accion.getSelectedItem().toString().equalsIgnoreCase("Entregar Libro")){
+            
+            int c1 = Integer.parseInt(txt_librosAsignadosP.getText());
+            int c2 = Integer.parseInt(txt_CantidadLibros.getValue().toString());
+            
+            //int operacion = c1-c2;
+            String operacion = Integer.toString(c1-c2);
+            
             try{
                 BufferedReader file = new BufferedReader(new FileReader("Reservaciones.txt"));
                 String line;String input = "";
@@ -536,7 +611,7 @@ public class FormSolictarLibro extends javax.swing.JFrame {
                     /* Podemos verificar si es Usuario_1 y \r\n es para hacer el 
                       Salto de Línea y tener el formato original */
                     if(line.contains(txt_Nombre.getText())){
-                        input += line.replaceAll(txt_librosAsignadosP.getText(),txt_CantidadLibros.getValue().toString())+"\r\n";
+                        input += line.replaceAll(txt_librosAsignadosP.getText(),operacion)+"\r\n";
                         //input += "\n";
                     }else{
                         input += line+"\r\n";
@@ -549,6 +624,32 @@ public class FormSolictarLibro extends javax.swing.JFrame {
             }catch(Exception e){
                 JOptionPane.showMessageDialog(rootPane, "Dato no modificado");
             }
+            
+            int c3 = Integer.parseInt(txt_librosDisponibles.getText());
+            int c4 = Integer.parseInt(txt_CantidadLibros.getValue().toString());
+            String operacion2 = Integer.toString(c3+c4);
+            try{
+                BufferedReader files = new BufferedReader(new FileReader("Reservaciones2.txt"));
+                String lines;String input = "";
+                while((lines = files.readLine()) != null){
+                    /* Podemos verificar si es Usuario_1 y \r\n es para hacer el 
+                      Salto de Línea y tener el formato original */
+                    if(lines.contains(txt_libroResumen.getText())){
+                        input += lines.replaceAll(txt_librosDisponibles.getText(),operacion2)+"\r\n";
+                        //input += "\n";
+                    }else{
+                        input += lines+"\r\n";
+                    }
+                        
+                }
+                FileOutputStream fileOut = new FileOutputStream("Reservaciones2.txt");
+                fileOut.write(input.getBytes());
+                fileOut.close();
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(rootPane, "Dato no modificado");
+            }
+            
+            
         }
         //limpiarL();
         FormPrincipal selcam = new FormPrincipal();
@@ -558,8 +659,58 @@ public class FormSolictarLibro extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_enviarSolicitudActionPerformed
 
     private void BuscarTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarTituloActionPerformed
+        
+        
+        imprimir(datos.buscarL(txt_TituloLibro.getText()));
+        
+        //String linea;FileReader f = null;
+        //String libros ="", resto ="";
+        /*try {
+            f = new FileReader("Reservaciones.txt");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(MasterClass.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try (BufferedReader b = new BufferedReader(f)) {
+            while ((linea = b.readLine()) != null) {
+                String orden[] = linea.split(",");
+                libros=orden[2];
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }*/
+        
+        /*try {
+            f = new FileReader("Reservaciones2.txt");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(MasterClass.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try (BufferedReader b = new BufferedReader(f)) {
+            while ((linea = b.readLine()) != null) {
+                String orden[] = linea.split(",");
+                resto=orden[1];
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }*/
+        
+        
+        /*imprimir(datos.buscarL(txt_TituloLibro.getText()));
+        txt_librosAsignadosP.setText(libros);
+        txt_librosDisponibles.setText(resto);*/
+    }//GEN-LAST:event_BuscarTituloActionPerformed
+
+    private void btn_botonBuscarlibroAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_botonBuscarlibroAnteriorActionPerformed
+        imprimir(datos.anteriorL());
+    }//GEN-LAST:event_btn_botonBuscarlibroAnteriorActionPerformed
+
+    private void btn_botonBuscarlibroSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_botonBuscarlibroSiguienteActionPerformed
+        imprimir(datos.siguenteL());
+    }//GEN-LAST:event_btn_botonBuscarlibroSiguienteActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String linea;FileReader f = null;
-        String restante ="", usuario="";
+        String libros ="", resto ="";
+        
         try {
             f = new FileReader("Reservaciones.txt");
         } catch (FileNotFoundException ex) {
@@ -568,8 +719,21 @@ public class FormSolictarLibro extends javax.swing.JFrame {
         try (BufferedReader b = new BufferedReader(f)) {
             while ((linea = b.readLine()) != null) {
                 String orden[] = linea.split(",");
-                usuario=orden[2];
-                restante=orden[3];
+                libros=orden[2];
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        try {
+            f = new FileReader("Reservaciones2.txt");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(MasterClass.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try (BufferedReader b = new BufferedReader(f)) {
+            while ((linea = b.readLine()) != null) {
+                String orden[] = linea.split(",");
+                resto=orden[1];
             }
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, e);
@@ -577,9 +741,9 @@ public class FormSolictarLibro extends javax.swing.JFrame {
         
         
         imprimir(datos.buscarL(txt_TituloLibro.getText()));
-        txt_librosAsignadosP.setText(usuario);
-        txt_librosDisponibles.setText(restante);
-    }//GEN-LAST:event_BuscarTituloActionPerformed
+        txt_librosAsignadosP.setText(libros);
+        txt_librosDisponibles.setText(resto);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -621,12 +785,16 @@ public class FormSolictarLibro extends javax.swing.JFrame {
     private javax.swing.JButton BuscarTitulo;
     private javax.swing.JButton btn_CargarDatos;
     private javax.swing.JButton btn_atras;
+    private javax.swing.JButton btn_botonBuscarlibroAnterior;
+    private javax.swing.JButton btn_botonBuscarlibroSiguiente;
     private javax.swing.JButton btn_buscarSolicitarLibro;
     private javax.swing.JButton btn_enviarSolicitud;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
