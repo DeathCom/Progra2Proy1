@@ -1,1 +1,3 @@
-El asco,15
+﻿Pantaloes Cortos,8
+Detectives Salvajes,7
+Plata quemada,15

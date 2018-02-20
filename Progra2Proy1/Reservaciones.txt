@@ -1,1 +1,3 @@
-marco,El asco,0
+﻿marco,﻿Pantaloes Cortos,2
+segio,Detectives Salvajes,3
+carlos,Plata quemada,0

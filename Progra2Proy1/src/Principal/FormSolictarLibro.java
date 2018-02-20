@@ -50,6 +50,7 @@ public class FormSolictarLibro extends javax.swing.JFrame {
     }
      public void imprimir(Solicitudes arg){
        txt_librosAsignadosP.setText(arg.getLibAsignados());
+       txt_TituloLibro.setText(arg.getNombLibro());
     }
     
     /**
@@ -104,7 +105,7 @@ public class FormSolictarLibro extends javax.swing.JFrame {
         btn_botonBuscarlibroSiguiente = new javax.swing.JButton();
         btn_botonBuscarlibroAnterior = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btn_verificarPersona = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(600, 300));
@@ -205,10 +206,10 @@ public class FormSolictarLibro extends javax.swing.JFrame {
 
         jLabel13.setText("Asignados a persona:");
 
-        jButton1.setText("Verificar Estudiante");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_verificarPersona.setText("Verificar Persona");
+        btn_verificarPersona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_verificarPersonaActionPerformed(evt);
             }
         });
 
@@ -302,7 +303,7 @@ public class FormSolictarLibro extends javax.swing.JFrame {
                         .addComponent(btn_atras)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btn_verificarPersona)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator2)
@@ -365,7 +366,7 @@ public class FormSolictarLibro extends javax.swing.JFrame {
                         .addComponent(jLabel12)
                         .addGap(3, 3, 3))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btn_verificarPersona)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(txt_libroResumen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -592,12 +593,34 @@ public class FormSolictarLibro extends javax.swing.JFrame {
             
             reserva.GuardarArchivo(txt_Nombre.getText(),txt_libroResumen.getText(),txt_CantidadLibros.getValue().toString());
                    
-            
             reserva.GuardarArchivolibro(txt_libroResumen.getText(), resto);
             JOptionPane.showMessageDialog(null, "Solicitud Recibida");
             
         }else if(txt_Accion.getSelectedItem().toString().equalsIgnoreCase("Entregar Libro")){
-            
+            int c3 = Integer.parseInt(txt_librosDisponibles.getText());
+            int c4 = Integer.parseInt(txt_CantidadLibros.getValue().toString());
+            String operacion2 = Integer.toString(c3+c4);
+            try{
+                BufferedReader files = new BufferedReader(new FileReader("Reservaciones2.txt"));
+                String lines;String input = "";
+                while((lines = files.readLine()) != null){
+                    /* Podemos verificar si es Usuario_1 y \r\n es para hacer el 
+                      Salto de Línea y tener el formato original */
+                    if(lines.contains(txt_libroResumen.getText())){
+                        input += lines.replaceAll(txt_librosDisponibles.getText(),operacion2)+"\r\n";
+                        //input += "\n";
+                    }else{
+                        input += lines+"\r\n";
+                    }
+                        
+                }
+                FileOutputStream fileOut = new FileOutputStream("Reservaciones2.txt");
+                fileOut.write(input.getBytes());
+                fileOut.close();
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(rootPane, "Dato no modificado");
+            }
+
             int c1 = Integer.parseInt(txt_librosAsignadosP.getText());
             int c2 = Integer.parseInt(txt_CantidadLibros.getValue().toString());
             
@@ -624,32 +647,7 @@ public class FormSolictarLibro extends javax.swing.JFrame {
             }catch(Exception e){
                 JOptionPane.showMessageDialog(rootPane, "Dato no modificado");
             }
-            
-            int c3 = Integer.parseInt(txt_librosDisponibles.getText());
-            int c4 = Integer.parseInt(txt_CantidadLibros.getValue().toString());
-            String operacion2 = Integer.toString(c3+c4);
-            try{
-                BufferedReader files = new BufferedReader(new FileReader("Reservaciones2.txt"));
-                String lines;String input = "";
-                while((lines = files.readLine()) != null){
-                    /* Podemos verificar si es Usuario_1 y \r\n es para hacer el 
-                      Salto de Línea y tener el formato original */
-                    if(lines.contains(txt_libroResumen.getText())){
-                        input += lines.replaceAll(txt_librosDisponibles.getText(),operacion2)+"\r\n";
-                        //input += "\n";
-                    }else{
-                        input += lines+"\r\n";
-                    }
-                        
-                }
-                FileOutputStream fileOut = new FileOutputStream("Reservaciones2.txt");
-                fileOut.write(input.getBytes());
-                fileOut.close();
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(rootPane, "Dato no modificado");
-            }
-            
-            
+ 
         }
         //limpiarL();
         FormPrincipal selcam = new FormPrincipal();
@@ -662,6 +660,7 @@ public class FormSolictarLibro extends javax.swing.JFrame {
         
         
         imprimir(datos.buscarL(txt_TituloLibro.getText()));
+        //imprimir(data.buscar(txt_Nombre.getText()));
         
         //String linea;FileReader f = null;
         //String libros ="", resto ="";
@@ -701,16 +700,19 @@ public class FormSolictarLibro extends javax.swing.JFrame {
 
     private void btn_botonBuscarlibroAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_botonBuscarlibroAnteriorActionPerformed
         imprimir(datos.anteriorL());
+        //imprimir(data.anterior());
     }//GEN-LAST:event_btn_botonBuscarlibroAnteriorActionPerformed
 
     private void btn_botonBuscarlibroSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_botonBuscarlibroSiguienteActionPerformed
         imprimir(datos.siguenteL());
+        //imprimir(data.siguente());
     }//GEN-LAST:event_btn_botonBuscarlibroSiguienteActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_verificarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_verificarPersonaActionPerformed
         String linea;FileReader f = null;
-        String libros ="", resto ="";
-        
+        String  resto ="";
+        Solicitudes solicitud = new Solicitudes();
+               
         try {
             f = new FileReader("Reservaciones.txt");
         } catch (FileNotFoundException ex) {
@@ -719,12 +721,18 @@ public class FormSolictarLibro extends javax.swing.JFrame {
         try (BufferedReader b = new BufferedReader(f)) {
             while ((linea = b.readLine()) != null) {
                 String orden[] = linea.split(",");
-                libros=orden[2];
+                //libros=orden[2];
+                solicitud.setNombSolicitante(orden[0]);
+                solicitud.setNombLibro(orden[1]);
+                solicitud.setLibAsignados(orden[2]);
             }
+            data.guardar(solicitud.getNombSolicitante(), solicitud.getNombLibro(), solicitud.getLibAsignados());
+            
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, e);
         }
         
+                
         try {
             f = new FileReader("Reservaciones2.txt");
         } catch (FileNotFoundException ex) {
@@ -739,11 +747,15 @@ public class FormSolictarLibro extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
         
+        if(txt_Nombre.getText().equalsIgnoreCase(solicitud.getNombSolicitante())){
+            
+            imprimir(data.buscar(txt_Nombre.getText()));
+            txt_librosDisponibles.setText(resto);
+            imprimir(datos.buscarL(txt_TituloLibro.getText()));
+        }
         
-        imprimir(datos.buscarL(txt_TituloLibro.getText()));
-        txt_librosAsignadosP.setText(libros);
-        txt_librosDisponibles.setText(resto);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+    }//GEN-LAST:event_btn_verificarPersonaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -789,7 +801,7 @@ public class FormSolictarLibro extends javax.swing.JFrame {
     private javax.swing.JButton btn_botonBuscarlibroSiguiente;
     private javax.swing.JButton btn_buscarSolicitarLibro;
     private javax.swing.JButton btn_enviarSolicitud;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btn_verificarPersona;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

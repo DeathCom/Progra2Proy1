@@ -7,6 +7,10 @@ public class DataSolicitudes {
     private Solicitudes obCola;
     private Solicitudes obTmp;
     
+    private Reservados obInicialReserva;
+    private Reservados obColaReserva;
+    private Reservados obTmpReserva;
+    
     //Inicio metodos para Clase Estudiante
     //##########################################################################
     public Solicitudes llenar(String nombSolicitante, String nombLibro, String libAsignados,
@@ -110,6 +114,75 @@ public class DataSolicitudes {
         do{
             if(obTmp.getNombSolicitante().equalsIgnoreCase(buscar)){
                 ob = obTmp;
+            }
+            obTmp=obTmp.getSiguente();
+        }while(obTmp != obInicial);
+        return ob;
+    }
+    
+    //Inicio metodos para Clase Reservados
+    //##########################################################################
+    public Reservados llenarR(String nombreLibro, String disponibles, Reservados anterior, Reservados siguente){
+
+        Reservados Temp = new Reservados();
+        Temp.setNombreLibro(nombreLibro);
+        Temp.setDisponibles(disponibles);
+        Temp.setAnterior(anterior);
+        Temp.setSiguente(siguente);
+        return Temp;
+    }
+    public void guardarR(String nombreLibro, String disponibles){
+        if(obInicialReserva==null){
+            obInicialReserva = llenarR(nombreLibro,disponibles, null, null);
+            obColaReserva = obInicialReserva;
+            obTmpReserva = obInicialReserva;
+        }else{
+            obColaReserva.setSiguente(llenarR(nombreLibro,disponibles,obColaReserva, obInicialReserva));
+            obColaReserva = obColaReserva.getSiguente();
+            obInicialReserva.setAnterior(obColaReserva);
+        }
+    }
+    public Reservados siguenteR(){
+        if(obTmpReserva.getSiguente()==null){
+            return obTmpReserva;
+        }else{
+            obTmpReserva = obTmpReserva.getSiguente();
+            return obTmpReserva;
+        }
+    }
+    public Reservados anteriorR(){
+        if(obTmpReserva.getAnterior()==null){
+            return obTmpReserva;
+        }else{
+            obTmpReserva = obTmpReserva.getAnterior();
+            return obTmpReserva;
+        }
+    }
+    public Reservados primeroR(){
+        return obInicialReserva;
+    }
+    public Reservados ultimoR(){
+        return obColaReserva;
+    }
+    
+    public void modificarR(String nombreLibro, String disponibles){
+        Reservados obTmp = new Reservados();
+        obTmpReserva=obInicialReserva;
+        do{
+            if(nombreLibro.equalsIgnoreCase(obTmpReserva.getNombreLibro())){
+                obTmp.setNombreLibro(nombreLibro);
+                obTmp.setDisponibles(disponibles);
+                break;
+            }
+            obTmp=obTmp.getSiguente();
+        }while(obTmp != obInicialReserva);
+    }
+    public Reservados buscarR(String buscar){
+        obTmpReserva=obInicialReserva;
+        Reservados ob = new Reservados();
+        do{
+            if(obTmpReserva.getNombreLibro().equalsIgnoreCase(buscar)){
+                ob = obTmpReserva;
             }
             obTmp=obTmp.getSiguente();
         }while(obTmp != obInicial);

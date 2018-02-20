@@ -168,7 +168,8 @@ public class FormPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_salirActionPerformed
 
     private void btn_SolicitarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SolicitarLibroActionPerformed
-        FormSolictarLibro abrir = new FormSolictarLibro();  //instancia el form 
+        //FormSolictarLibro abrir = new FormSolictarLibro();  //instancia el form 
+        FormentregaYsolicitudes abrir = new FormentregaYsolicitudes();
         abrir.setVisible(true);
         //abre el form seleccionCampos 
         this.dispose();

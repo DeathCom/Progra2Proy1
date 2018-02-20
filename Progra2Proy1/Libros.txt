@@ -1,12 +1,3 @@
-﻿ffffffffffffffffff,ffffffffffffffffff,ffffffffffffffffff,ffffffffffffffffff,0
-Unica Mirando Al mar,Unica Mirando Al mar,Unica Mirando Al mar,Unica Mirando Al mar,4
+﻿Pantaloes Cortos,Lara Rios,1995,Norma,10
 Detectives Salvajes,Roberto Bolaño,1988,Costa Rica,10
 Plata quemada,Ricardo Piglia,1977,Editorial Costarica,15
-Los trabajos del reino,Yuri Herrera,2003,Editorial Costa Rica,20
-Porque parece mentira la verdad nunca se sabe,Daniel Sada,1990,Editorial Costa Rica,10
-Angosta,Héctor Abad Faciolince,2000,Editorial Costa Rica,0
-La virgen de los sicarios,Fernando Vallejo,1994,Editorial Costa Rica,20
-El asco,Horacio Castellanos Moya,2010,Editorial Costa Rica,15
-Nadie me verá llorar,Cristina Rivera Garza,2003,Editorial Costa Rica,25
-Salón de belleza,Mario Bellatín,1994,Editorial Costa Rica,5
-La novela luminosa,Mario Levrero,1994,Editorial Costa Rica,10
