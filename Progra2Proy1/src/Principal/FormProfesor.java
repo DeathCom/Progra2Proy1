@@ -103,7 +103,7 @@ public class FormProfesor extends javax.swing.JFrame {
         btn_volver5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(600, 300));
+        setLocation(new java.awt.Point(500, 200));
 
         jLabel16.setText("Nombre:");
 

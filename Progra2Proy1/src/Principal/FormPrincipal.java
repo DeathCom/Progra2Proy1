@@ -36,7 +36,7 @@ public class FormPrincipal extends javax.swing.JFrame {
         btn_SolicitarLibro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(550, 300));
+        setLocation(new java.awt.Point(500, 200));
 
         btn_libros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/libros.jpg"))); // NOI18N
         btn_libros.addActionListener(new java.awt.event.ActionListener() {

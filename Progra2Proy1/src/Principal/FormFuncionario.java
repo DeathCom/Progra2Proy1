@@ -116,7 +116,7 @@ public class FormFuncionario extends javax.swing.JFrame {
         jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(600, 300));
+        setLocation(new java.awt.Point(500, 200));
 
         txt_CnombreFuncionario.setEditable(false);
 

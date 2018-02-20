@@ -114,6 +114,7 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
         btn_atras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(500, 50));
 
         jLabel6.setText("Tipo Persona:");
 
@@ -220,6 +221,11 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
         });
 
         jButton1.setText("Limpiar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -307,9 +313,6 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
                                 .addComponent(Buscarlibro)
                                 .addGap(43, 43, 43))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jSeparator1)
-                        .addGap(253, 253, 253))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(136, 136, 136)
@@ -325,20 +328,23 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(libro, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(btn_botonBuscarlibroAnterior1)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btn_botonBuscarlibroSiguiente1)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jButton1)
-                                            .addGap(24, 24, 24))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel15)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel15)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jSeparator1)))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(111, 111, 111)
+                .addComponent(btn_botonBuscarlibroAnterior1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_botonBuscarlibroSiguiente1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -387,15 +393,16 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
                         .addComponent(jLabel8))
                     .addComponent(txt_CantidadLibros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_Accion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(Buscarlibro, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Buscarlibro, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txt_Accion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel9)))
                 .addGap(18, 18, 18)
                 .addComponent(btn_enviarSolicitud)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -407,12 +414,12 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_botonBuscarlibroSiguiente1)
                     .addComponent(btn_botonBuscarlibroAnterior1)
                     .addComponent(jButton1))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGap(21, 21, 21))
         );
 
         jTabbedPane1.addTab("Solicitud y entrega de Libros", jPanel1);
@@ -454,28 +461,49 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_atrasActionPerformed
 
     private void btn_botonBuscarlibroAnterior1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_botonBuscarlibroAnterior1ActionPerformed
-        imprimir(data.anterior());
-        txt_librosAsignadosP.setText(cantidad.getText());
+        if(data.primeroR()==null){
+            JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
+        }else{
+           imprimir(data.anterior());
+           txt_librosAsignadosP.setText(cantidad.getText()); 
+        }
     }//GEN-LAST:event_btn_botonBuscarlibroAnterior1ActionPerformed
 
     private void btn_botonBuscarlibroSiguiente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_botonBuscarlibroSiguiente1ActionPerformed
-        imprimir(data.siguente());
-        txt_librosAsignadosP.setText(cantidad.getText());
+        if(data.primeroR()==null){
+            JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
+        }else{
+           imprimir(data.siguente());
+           txt_librosAsignadosP.setText(cantidad.getText());
+        } 
     }//GEN-LAST:event_btn_botonBuscarlibroSiguiente1ActionPerformed
 
     private void btn_botonBuscarlibroSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_botonBuscarlibroSiguienteActionPerformed
-        imprimir(datos.siguenteL());
-        imprimir(data.siguenteR());
+        if(datos.primeroL()==null || data.primeroR()==null){
+            JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
+        }else{
+            imprimir(datos.siguenteL());
+            imprimir(data.siguenteR());
+        }
     }//GEN-LAST:event_btn_botonBuscarlibroSiguienteActionPerformed
 
     private void btn_botonBuscarlibroAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_botonBuscarlibroAnteriorActionPerformed
-        imprimir(datos.anteriorL());
-        imprimir(data.anteriorR());
+        if(datos.primeroL()==null || data.primeroR()==null){
+            JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
+        }else{
+           imprimir(datos.anteriorL());
+           imprimir(data.anteriorR()); 
+        }
+        
     }//GEN-LAST:event_btn_botonBuscarlibroAnteriorActionPerformed
 
     private void btn_enviarSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enviarSolicitudActionPerformed
         MasterArchivos reserva = new MasterArchivos();
-        if(txt_Accion.getSelectedItem().toString().equalsIgnoreCase("Solicitar Libro")){
+        String TipoPersona = txt_TipoPersona.getSelectedItem().toString();
+        if(datos.primeroF()==null || datos.primeroE()==null || datos.primeroP()==null){
+            JOptionPane.showMessageDialog(rootPane, "Primero Carge los datos");
+        }else{
+            if(txt_Accion.getSelectedItem().toString().equalsIgnoreCase("Solicitar Libro")){
             //Libro li = new Libro();
             int c1 = Integer.parseInt(txt_librosAlmacenados.getText());
             int c2 = Integer.parseInt(txt_CantidadLibros.getValue().toString());
@@ -485,7 +513,7 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
             reserva.GuardarArchivo(txt_Nombre.getText(),txt_TituloLibro.getText(),txt_CantidadLibros.getValue().toString());
 
             //reserva.GuardarArchivolibro(txt_TituloLibro.getText(), resto);
-            JOptionPane.showMessageDialog(null, "Solicitud Recibida");
+            //JOptionPane.showMessageDialog(null, "Solicitud Recibida");
 
             try{
                 BufferedReader files = new BufferedReader(new FileReader("Reservaciones2.txt"));
@@ -510,78 +538,88 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(null, "Solicitud Recibida");
 
-        }else if(txt_Accion.getSelectedItem().toString().equalsIgnoreCase("Entregar Libro")){
-            int c3 = Integer.parseInt(txt_librosDisponibles.getText());
-            int c4 = Integer.parseInt(txt_CantidadLibros.getValue().toString());
-            String operacion2 = Integer.toString(c3+c4);
-            try{
-                BufferedReader files = new BufferedReader(new FileReader("Reservaciones2.txt"));
-                String lines;String input = "";
-                while((lines = files.readLine()) != null){
-                    /* Podemos verificar si es Usuario_1 y \r\n es para hacer el
-                    Salto de Línea y tener el formato original */
-                    if(lines.contains(txt_TituloLibro.getText())){
-                        input += lines.replaceAll(txt_librosDisponibles.getText(),operacion2)+"\r\n";
-                        //input += "\n";
-                    }else{
-                        input += lines+"\r\n";
+            }else if(txt_Accion.getSelectedItem().toString().equalsIgnoreCase("Entregar Libro")){
+                int c3 = Integer.parseInt(txt_librosDisponibles.getText());
+                int c4 = Integer.parseInt(txt_CantidadLibros.getValue().toString());
+                String operacion2 = Integer.toString(c3+c4);
+                try{
+                    BufferedReader files = new BufferedReader(new FileReader("Reservaciones2.txt"));
+                    String lines;String input = "";
+                    while((lines = files.readLine()) != null){
+                        /* Podemos verificar si es Usuario_1 y \r\n es para hacer el
+                        Salto de Línea y tener el formato original */
+                        if(lines.contains(txt_TituloLibro.getText())){
+                            input += lines.replaceAll(txt_librosDisponibles.getText(),operacion2)+"\r\n";
+                            //input += "\n";
+                        }else{
+                            input += lines+"\r\n";
+                        }
+
                     }
-
+                    FileOutputStream fileOut = new FileOutputStream("Reservaciones2.txt");
+                    fileOut.write(input.getBytes());
+                    fileOut.close();
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(rootPane, "Dato no modificado");
                 }
-                FileOutputStream fileOut = new FileOutputStream("Reservaciones2.txt");
-                fileOut.write(input.getBytes());
-                fileOut.close();
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(rootPane, "Dato no modificado");
-            }
 
-            int c1 = Integer.parseInt(txt_librosAsignadosP.getText());
-            int c2 = Integer.parseInt(txt_CantidadLibros.getValue().toString());
+                int c1 = Integer.parseInt(txt_librosAsignadosP.getText());
+                int c2 = Integer.parseInt(txt_CantidadLibros.getValue().toString());
 
-            //int operacion = c1-c2;
-            String operacion = Integer.toString(c1-c2);
+                //int operacion = c1-c2;
+                String operacion = Integer.toString(c1-c2);
 
-            try{
-                BufferedReader file = new BufferedReader(new FileReader("Reservaciones.txt"));
-                String line;String input = "";
-                while((line = file.readLine()) != null){
-                    /* Podemos verificar si es Usuario_1 y \r\n es para hacer el
-                    Salto de Línea y tener el formato original */
-                    if(line.contains(txt_Nombre.getText())){
-                        input += line.replaceAll(txt_librosAsignadosP.getText(),operacion)+"\r\n";
-                        //input += "\n";
-                    }else{
-                        input += line+"\r\n";
+                try{
+                    BufferedReader file = new BufferedReader(new FileReader("Reservaciones.txt"));
+                    String line;String input = "";
+                    while((line = file.readLine()) != null){
+                        /* Podemos verificar si es Usuario_1 y \r\n es para hacer el
+                        Salto de Línea y tener el formato original */
+                        if(line.contains(txt_Nombre.getText())){
+                            input += line.replaceAll(txt_librosAsignadosP.getText(),operacion)+"\r\n";
+                            //input += "\n";
+                        }else{
+                            input += line+"\r\n";
+                        }
+
                     }
-
+                    FileOutputStream fileOut = new FileOutputStream("Reservaciones.txt");
+                    fileOut.write(input.getBytes());
+                    fileOut.close();
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(rootPane, "Dato no modificado");
                 }
-                FileOutputStream fileOut = new FileOutputStream("Reservaciones.txt");
-                fileOut.write(input.getBytes());
-                fileOut.close();
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(rootPane, "Dato no modificado");
-            }
 
+            }
+        
         }
-        //limpiarL();
+         //limpiarL();
         FormPrincipal selcam = new FormPrincipal();
         selcam.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_enviarSolicitudActionPerformed
 
     private void BuscarlibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarlibroActionPerformed
-        imprimir(datos.buscarL(txt_TituloLibro.getText()));
-        imprimir(data.buscarR(txt_TituloLibro.getText()));
+        if(datos.primeroL()==null || data.primeroR()==null){
+            JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
+        }else{
+           imprimir(datos.buscarL(txt_TituloLibro.getText()));
+            imprimir(data.buscarR(txt_TituloLibro.getText()));
+        }
     }//GEN-LAST:event_BuscarlibroActionPerformed
 
     private void btn_buscarSolicitarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarSolicitarLibroActionPerformed
         String TipoPersona = txt_TipoPersona.getSelectedItem().toString();
-        if(TipoPersona.equalsIgnoreCase("Funcionario")){
-            imprimir(datos.buscarF(txt_Nombre.getText()));
-        }else if(TipoPersona.equalsIgnoreCase("Estudiante")){
-            imprimir(datos.buscarE(txt_Nombre.getText()));
-        }else if(TipoPersona.equalsIgnoreCase("Profesor")){
-            imprimir(datos.buscarP(txt_Nombre.getText()));
+        if(datos.primeroF()==null || datos.primeroE()==null || datos.primeroP()==null){
+            JOptionPane.showMessageDialog(rootPane, "Primero Carge los datos");
+        }else{
+           if(TipoPersona.equalsIgnoreCase("Funcionario")){
+                imprimir(datos.buscarF(txt_Nombre.getText()));
+            }else if(TipoPersona.equalsIgnoreCase("Estudiante")){
+                imprimir(datos.buscarE(txt_Nombre.getText()));
+            }else if(TipoPersona.equalsIgnoreCase("Profesor")){
+                imprimir(datos.buscarP(txt_Nombre.getText()));
+            }
         }
     }//GEN-LAST:event_btn_buscarSolicitarLibroActionPerformed
 
@@ -740,6 +778,10 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btn_CargarDatosActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

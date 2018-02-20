@@ -171,7 +171,7 @@ public class FormLibro extends javax.swing.JFrame {
         txt_Inacionalidad = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(600, 300));
+        setLocation(new java.awt.Point(500, 200));
 
         jLabel9.setText("Cantidad de libros Disponibles:");
 

@@ -108,7 +108,7 @@ public class FormSolictarLibro extends javax.swing.JFrame {
         btn_verificarPersona = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(600, 300));
+        setLocation(new java.awt.Point(500, 200));
 
         btn_atras.setText("Atras");
         btn_atras.addActionListener(new java.awt.event.ActionListener() {
