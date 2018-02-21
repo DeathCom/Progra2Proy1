@@ -1,3 +1,2 @@
 ﻿segio,Detectives Salvajes,3
-carlos,Plata quemada,0
 Marcos,Plata quemada,2
