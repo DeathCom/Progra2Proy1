@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 public class FormFuncionario extends javax.swing.JFrame {
     MasterClass datos = new MasterClass();
     MasterArchivos controlArchivo = new MasterArchivos();
+    Funcionario funcionario = new Funcionario();
     
     public void limpiar(){
         txt_CnombreFuncionario.setText("");
@@ -487,6 +488,8 @@ public class FormFuncionario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
         }else{
             imprimir(datos.primeroF());
+            //Uso del metodo abstracto
+             txt_CLibosAsignados.setText(funcionario.cantidadLibrosPrestados(txt_CnombreFuncionario.getText()));
         }
     }//GEN-LAST:event_btn_primeroActionPerformed
 
@@ -495,6 +498,8 @@ public class FormFuncionario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
         }else{
             imprimir(datos.anteriorF());
+            //Uso del metodo abstracto
+             txt_CLibosAsignados.setText(funcionario.cantidadLibrosPrestados(txt_CnombreFuncionario.getText()));
         }
     }//GEN-LAST:event_btn_anteriorActionPerformed
 
@@ -503,6 +508,8 @@ public class FormFuncionario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
         }else{
             imprimir(datos.siguenteF());
+            //Uso del metodo abstracto
+             txt_CLibosAsignados.setText(funcionario.cantidadLibrosPrestados(txt_CnombreFuncionario.getText()));
         }
     }//GEN-LAST:event_btn_siguienteActionPerformed
 
@@ -511,11 +518,13 @@ public class FormFuncionario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
         }else{
             imprimir(datos.ultimoF());
+            //Uso del metodo abstracto
+             txt_CLibosAsignados.setText(funcionario.cantidadLibrosPrestados(txt_CnombreFuncionario.getText()));
         }
     }//GEN-LAST:event_btn_ultimoActionPerformed
 
     private void btn_buscarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarFuncionarioActionPerformed
-        Funcionario funcionario = new Funcionario();
+        
         if(datos.primeroF()==null){
             JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
         }else{
@@ -566,8 +575,7 @@ public class FormFuncionario extends javax.swing.JFrame {
                 BufferedReader file = new BufferedReader(new FileReader("Funcionarios.txt"));
                 String line;String input = "";
                 while((line = file.readLine()) != null){
-                    /* Podemos verificar si es Usuario_1 y \r\n es para hacer el 
-                      Salto de Línea y tener el formato original */
+
                     if(line.contains(txt_CnombreFuncionario.getText())){
                         input += line.replaceAll(opcion,txt_Remplazar.getText())+"\r\n";
                         //input += "\n";

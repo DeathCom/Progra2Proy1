@@ -519,8 +519,7 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
                 BufferedReader files = new BufferedReader(new FileReader("Reservaciones2.txt"));
                 String lines;String input = "";
                 while((lines = files.readLine()) != null){
-                    /* Podemos verificar si es Usuario_1 y \r\n es para hacer el
-                    Salto de Línea y tener el formato original */
+
                     if(lines.contains(txt_TituloLibro.getText())){
                         input += lines.replaceAll(txt_librosDisponibles.getText(),resto)+"\r\n";
                         //input += "\n";
@@ -546,8 +545,7 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
                     BufferedReader files = new BufferedReader(new FileReader("Reservaciones2.txt"));
                     String lines;String input = "";
                     while((lines = files.readLine()) != null){
-                        /* Podemos verificar si es Usuario_1 y \r\n es para hacer el
-                        Salto de Línea y tener el formato original */
+
                         if(lines.contains(txt_TituloLibro.getText())){
                             input += lines.replaceAll(txt_librosDisponibles.getText(),operacion2)+"\r\n";
                             //input += "\n";
@@ -573,8 +571,7 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
                     BufferedReader file = new BufferedReader(new FileReader("Reservaciones.txt"));
                     String line;String input = "";
                     while((line = file.readLine()) != null){
-                        /* Podemos verificar si es Usuario_1 y \r\n es para hacer el
-                        Salto de Línea y tener el formato original */
+
                         if(line.contains(txt_Nombre.getText())){
                             input += line.replaceAll(txt_librosAsignadosP.getText(),operacion)+"\r\n";
                             //input += "\n";

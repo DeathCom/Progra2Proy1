@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 public class FormEstudiante extends javax.swing.JFrame {
     MasterClass datos = new MasterClass();
     MasterArchivos controlArchivo = new MasterArchivos();
+    Estudiante estudiante = new Estudiante();
     
     public void limpiar(){
         txt_CnombreEstudiante.setText("");
@@ -523,6 +524,8 @@ public class FormEstudiante extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
         }else{
             imprimir(datos.primeroE());
+            //Uso del metodo abstracto
+             txt_CLibosAsignados.setText(estudiante.cantidadLibrosPrestados(txt_CnombreEstudiante.getText()));
         }
     }//GEN-LAST:event_btn_primeroActionPerformed
 
@@ -531,11 +534,13 @@ public class FormEstudiante extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
         }else{
             imprimir(datos.siguenteE());
+            //Uso del metodo abstracto
+             txt_CLibosAsignados.setText(estudiante.cantidadLibrosPrestados(txt_CnombreEstudiante.getText()));
         }
     }//GEN-LAST:event_btn_siguienteActionPerformed
 
     private void btn_buscarEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarEstudianteActionPerformed
-        Estudiante estudiante = new Estudiante();
+        
         if(datos.primeroE()==null){
             JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
         }else{
@@ -576,8 +581,7 @@ public class FormEstudiante extends javax.swing.JFrame {
                 BufferedReader file = new BufferedReader(new FileReader("Estudiantes.txt"));
                 String line;String input = "";
                 while((line = file.readLine()) != null){
-                    /* Podemos verificar si es Usuario_1 y \r\n es para hacer el 
-                      Salto de Línea y tener el formato original */
+
                     if(line.contains(txt_CnombreEstudiante.getText())){
                         input += line.replaceAll(opcion,txt_Remplazar.getText())+"\r\n";
                         //input += "\n";
@@ -614,6 +618,8 @@ public class FormEstudiante extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
         }else{
             imprimir(datos.anteriorE());
+            //Uso del metodo abstracto
+             txt_CLibosAsignados.setText(estudiante.cantidadLibrosPrestados(txt_CnombreEstudiante.getText()));
         }
     }//GEN-LAST:event_btn_anteriorActionPerformed
 
@@ -622,6 +628,8 @@ public class FormEstudiante extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
         }else{
             imprimir(datos.ultimoE());
+            //Uso del metodo abstracto
+             txt_CLibosAsignados.setText(estudiante.cantidadLibrosPrestados(txt_CnombreEstudiante.getText()));
         }
     }//GEN-LAST:event_btn_ultimoActionPerformed
 

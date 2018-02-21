@@ -933,8 +933,7 @@ public class FormLibro extends javax.swing.JFrame {
                 BufferedReader file = new BufferedReader(new FileReader("Libros.txt"));
                 String line;String input = "";
                 while((line = file.readLine()) != null){
-                    /* Podemos verificar si es Usuario_1 y \r\n es para hacer el 
-                      Salto de Línea y tener el formato original */
+
                     if(line.contains(txt_CnombreLibro.getText())){
                         input += line.replaceAll(opcion,txt_Remplazar.getText())+"\r\n";
                         //input += "\n";
@@ -1025,8 +1024,7 @@ public class FormLibro extends javax.swing.JFrame {
                 BufferedReader file = new BufferedReader(new FileReader("Autores.txt"));
                 String line;String input = "";
                 while((line = file.readLine()) != null){
-                    /* Podemos verificar si es Usuario_1 y \r\n es para hacer el 
-                      Salto de Línea y tener el formato original */
+
                     if(line.contains(txt_CnombreAutor.getText())){
                         input += line.replaceAll(opcion,txt_RemplazarAutor.getText())+"\r\n";
                         //input += "\n";
