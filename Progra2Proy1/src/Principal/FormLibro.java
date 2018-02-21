@@ -191,8 +191,6 @@ public class FormLibro extends javax.swing.JFrame {
 
         jLabel16.setText("Nombre del Libro:");
 
-        txt_CnombreLibro.setEditable(false);
-
         btn_buscarLibro.setText("Buscar");
         btn_buscarLibro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -465,8 +463,6 @@ public class FormLibro extends javax.swing.JFrame {
         jTabbedPane4.addTab("Ingresar Libro", jPanel2);
 
         jLabel24.setText("Nombre:");
-
-        txt_CnombreAutor.setEditable(false);
 
         txt_CapellidoAutor.setEditable(false);
 

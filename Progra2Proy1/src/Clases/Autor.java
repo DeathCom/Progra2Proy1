@@ -18,24 +18,8 @@ public class Autor extends Persona{
     }*/
     
     @Override
-    public int cantidadLibrosPrestados(int cantidadLibros, String accion){
-        
-           //resultado = librosprestado+cantidadLibros; 
-           
-           
-         // return resultado;   
-        //cantidadLibrosalmacenada=cantidadLibrosalmacenada+cantidadLibros;
-        /*if(accion.equalsIgnoreCase("Entregar Libro")){
-            
-            return librosprestado=librosprestado-cantidadLibros;
-            
-        }else if(accion.equalsIgnoreCase("Solicitar Libro")){
-           return librosprestado=librosprestado+cantidadLibros;
-        }else{
-            return cantidadLibros;
-        }*/
-        return cantidadLibros;
-
+    public String cantidadLibrosPrestados(String buscar){
+        return "";
     }
 
     public String getNacionalidad() {

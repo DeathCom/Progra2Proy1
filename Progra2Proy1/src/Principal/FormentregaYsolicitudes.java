@@ -500,7 +500,7 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
     private void btn_enviarSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enviarSolicitudActionPerformed
         MasterArchivos reserva = new MasterArchivos();
         String TipoPersona = txt_TipoPersona.getSelectedItem().toString();
-        if(datos.primeroF()==null || datos.primeroE()==null || datos.primeroP()==null){
+        if(datos.primeroL()==null){
             JOptionPane.showMessageDialog(rootPane, "Primero Carge los datos");
         }else{
             if(txt_Accion.getSelectedItem().toString().equalsIgnoreCase("Solicitar Libro")){
@@ -610,7 +610,7 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
 
     private void btn_buscarSolicitarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarSolicitarLibroActionPerformed
         String TipoPersona = txt_TipoPersona.getSelectedItem().toString();
-        if(datos.primeroF()==null || datos.primeroE()==null || datos.primeroP()==null){
+        if(datos.primeroL()==null){
             JOptionPane.showMessageDialog(rootPane, "Primero Carge los datos");
         }else{
            if(TipoPersona.equalsIgnoreCase("Funcionario")){
@@ -625,18 +625,18 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
 
     private void btn_CargarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CargarDatosActionPerformed
         String TipoPersona = txt_TipoPersona.getSelectedItem().toString();
-
-        if(TipoPersona.equalsIgnoreCase("Funcionario")){
-            Funcionario funcionario = new Funcionario();
-            String linea;FileReader f = null;
+        
+        //######################################################################
+        Funcionario funcionario = new Funcionario();
+            String lineaF;FileReader fF = null;
             try {
-                f = new FileReader("Funcionarios.txt");
+                fF = new FileReader("Funcionarios.txt");
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(MasterClass.class.getName()).log(Level.SEVERE, null, ex);
             }
-            try (BufferedReader b = new BufferedReader(f)) {
-                while ((linea = b.readLine()) != null) {
-                    String orden[] = linea.split(",");
+            try (BufferedReader b = new BufferedReader(fF)) {
+                while ((lineaF = b.readLine()) != null) {
+                    String orden[] = lineaF.split(",");
                     funcionario.setNombre(orden[0]);
                     funcionario.setApellido(orden[1]);
                     funcionario.setDireccionCorreo(orden[2]);
@@ -653,18 +653,17 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
-
-        }else if(TipoPersona.equalsIgnoreCase("Estudiante")){
+            //##################################################################
             Estudiante estudiante = new Estudiante();
-            String linea;FileReader f = null;
+            String lineaE;FileReader fE = null;
             try {
-                f = new FileReader("Estudiantes.txt");
+                fE = new FileReader("Estudiantes.txt");
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(MasterClass.class.getName()).log(Level.SEVERE, null, ex);
             }
-            try (BufferedReader b = new BufferedReader(f)) {
-                while ((linea = b.readLine()) != null) {
-                    String orden[] = linea.split(",");
+            try (BufferedReader b = new BufferedReader(fE)) {
+                while ((lineaE = b.readLine()) != null) {
+                    String orden[] = lineaE.split(",");
                     estudiante.setNombre(orden[0]);
                     estudiante.setApellido(orden[1]);
                     estudiante.setDireccionCorreo(orden[2]);
@@ -682,18 +681,17 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
-
-        }else if(TipoPersona.equalsIgnoreCase("Profesor")){
+            //##################################################################
             Profesor profesor = new Profesor();
-            String linea;FileReader f = null;
+            String lineaP;FileReader fP = null;
             try {
-                f = new FileReader("profesores.txt");
+                fP = new FileReader("Profesores.txt");
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(MasterClass.class.getName()).log(Level.SEVERE, null, ex);
             }
-            try (BufferedReader b = new BufferedReader(f)) {
-                while ((linea = b.readLine()) != null) {
-                    String orden[] = linea.split(",");
+            try (BufferedReader b = new BufferedReader(fP)) {
+                while ((lineaP = b.readLine()) != null) {
+                    String orden[] = lineaP.split(",");
                     profesor.setNombre(orden[0]);
                     profesor.setApellido(orden[1]);
                     profesor.setDireccionCorreo(orden[2]);
@@ -709,19 +707,21 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
-
-        }
+        /*if(TipoPersona.equalsIgnoreCase("Funcionario")){
+        }else if(TipoPersona.equalsIgnoreCase("Estudiante")){
+        }else if(TipoPersona.equalsIgnoreCase("Profesor")){
+        }*/
         //############Cargar datos de Libro##########################
         Libro libro = new Libro();
-        String linea;FileReader f = null;
+        String lineaL;FileReader fL = null;
         try {
-            f = new FileReader("Libros.txt");
+            fL = new FileReader("Libros.txt");
         } catch (FileNotFoundException ex) {
             Logger.getLogger(MasterClass.class.getName()).log(Level.SEVERE, null, ex);
         }
-        try (BufferedReader b = new BufferedReader(f)) {
-            while ((linea = b.readLine()) != null) {
-                String orden[] = linea.split(",");
+        try (BufferedReader b = new BufferedReader(fL)) {
+            while ((lineaL = b.readLine()) != null) {
+                String orden[] = lineaL.split(",");
                 libro.setNombreLibro(orden[0]);
                 libro.setAutor(orden[1]);
                 libro.setFechaPublicacion(orden[2]);
@@ -736,15 +736,15 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
         }
         //############Cargar datos de Solicitudes##########################
         Solicitudes solicitud = new Solicitudes();
-        String lineas;FileReader file = null;
+        String lineaS;FileReader fS = null;
         try {
-            file = new FileReader("Reservaciones.txt");
+            fS = new FileReader("Reservaciones.txt");
         } catch (FileNotFoundException ex) {
             Logger.getLogger(DataSolicitudes.class.getName()).log(Level.SEVERE, null, ex);
         }
-        try (BufferedReader b = new BufferedReader(file)) {
-            while ((lineas = b.readLine()) != null) {
-                String orden[] = lineas.split(",");
+        try (BufferedReader b = new BufferedReader(fS)) {
+            while ((lineaS = b.readLine()) != null) {
+                String orden[] = lineaS.split(",");
                 solicitud.setNombSolicitante(orden[0]);
                 solicitud.setNombLibro(orden[1]);
                 solicitud.setLibAsignados(orden[2]);
@@ -757,20 +757,20 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
         }
         //############Cargar datos de Solicitudes2##########################
         Reservados Librosdisponibles = new Reservados();
-        String lineas2;FileReader fi = null;
+        String lineaS2;FileReader fS2 = null;
         try {
-            fi = new FileReader("Reservaciones2.txt");
+            fS2 = new FileReader("Reservaciones2.txt");
         } catch (FileNotFoundException ex) {
             Logger.getLogger(DataSolicitudes.class.getName()).log(Level.SEVERE, null, ex);
         }
-        try (BufferedReader b = new BufferedReader(fi)) {
-            while ((lineas2 = b.readLine()) != null) {
-                String orden[] = lineas2.split(",");
+        try (BufferedReader b = new BufferedReader(fS2)) {
+            while ((lineaS2 = b.readLine()) != null) {
+                String orden[] = lineaS2.split(",");
                 Librosdisponibles.setNombreLibro(orden[0]);
                 Librosdisponibles.setDisponibles(orden[1]);
 
                 data.guardarR(Librosdisponibles.getNombreLibro(), Librosdisponibles.getDisponibles());
-                System.out.print(Librosdisponibles.getNombreLibro()+"\n"+Librosdisponibles.getDisponibles());
+                //System.out.print(Librosdisponibles.getNombreLibro()+"\n"+Librosdisponibles.getDisponibles());
             }
 
         } catch (IOException e) {

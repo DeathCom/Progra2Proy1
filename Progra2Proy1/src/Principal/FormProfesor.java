@@ -107,8 +107,6 @@ public class FormProfesor extends javax.swing.JFrame {
 
         jLabel16.setText("Nombre:");
 
-        txt_CnombreProfesor.setEditable(false);
-
         txt_CapellidoProfesor.setEditable(false);
 
         jLabel17.setText("Apellido:");
@@ -491,10 +489,13 @@ public class FormProfesor extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ultimo1ActionPerformed
 
     private void btn_buscarProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarProfesorActionPerformed
-         if(datos.primeroP()==null){
+        Profesor profesor= new Profesor();
+        if(datos.primeroP()==null){
             JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
         }else{
             imprimir(datos.buscarP(txt_CnombreProfesor.getText()));
+            //Uso del metodo abstracto
+             txt_CLibosAsignados.setText(profesor.cantidadLibrosPrestados(txt_CnombreProfesor.getText()));
         }
     }//GEN-LAST:event_btn_buscarProfesorActionPerformed
 

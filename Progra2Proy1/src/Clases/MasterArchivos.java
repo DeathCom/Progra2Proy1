@@ -43,7 +43,7 @@ public class MasterArchivos {
     }
     public void GuardarArchivo(Profesor profesor){
         try {
-            FileWriter file = new FileWriter("profesores.txt", true);
+            FileWriter file = new FileWriter("Profesores.txt", true);
             BufferedWriter buffer = new BufferedWriter(file);
             PrintWriter printer = new PrintWriter(buffer);
             printer.print(profesor.getNombre());

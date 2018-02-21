@@ -118,8 +118,6 @@ public class FormFuncionario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(500, 200));
 
-        txt_CnombreFuncionario.setEditable(false);
-
         jLabel16.setText("Nombre:");
 
         jLabel17.setText("Apellido:");
@@ -264,9 +262,9 @@ public class FormFuncionario extends javax.swing.JFrame {
                         .addComponent(jLabel9)
                         .addGap(26, 26, 26)
                         .addComponent(txt_CLibosAsignados, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(btn_buscarFuncionario)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_CargarDatosFuncionarios))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btn_editar)
@@ -517,10 +515,13 @@ public class FormFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ultimoActionPerformed
 
     private void btn_buscarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarFuncionarioActionPerformed
+        Funcionario funcionario = new Funcionario();
         if(datos.primeroF()==null){
             JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
         }else{
             imprimir(datos.buscarF(txt_CnombreFuncionario.getText()));
+            //Uso del metodo abstracto
+             txt_CLibosAsignados.setText(funcionario.cantidadLibrosPrestados(txt_CnombreFuncionario.getText()));
         }
     }//GEN-LAST:event_btn_buscarFuncionarioActionPerformed
 

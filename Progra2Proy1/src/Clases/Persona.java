@@ -19,7 +19,7 @@ public abstract class Persona {
         this.sede = sede;
     }*/
     
-    public abstract int cantidadLibrosPrestados(int cantidadLibros, String accion);
+    public abstract String cantidadLibrosPrestados(String buscar);
     
     public String getNombre() {
         return nombre;

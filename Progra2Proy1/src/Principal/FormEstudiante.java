@@ -1,7 +1,9 @@
 package Principal;
+import Clases.DataSolicitudes;
 import Clases.Estudiante;
 import Clases.MasterClass;
 import Clases.MasterArchivos;
+import Clases.Solicitudes;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -117,8 +119,6 @@ public class FormEstudiante extends javax.swing.JFrame {
         setLocation(new java.awt.Point(500, 200));
 
         jLabel16.setText("Nombre:");
-
-        txt_CnombreEstudiante.setEditable(false);
 
         txt_CapellidoEstudiante.setEditable(false);
 
@@ -535,10 +535,13 @@ public class FormEstudiante extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_siguienteActionPerformed
 
     private void btn_buscarEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarEstudianteActionPerformed
+        Estudiante estudiante = new Estudiante();
         if(datos.primeroE()==null){
             JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
         }else{
              imprimir(datos.buscarE(txt_CnombreEstudiante.getText()));
+             //Uso del metodo abstracto
+             txt_CLibosAsignados.setText(estudiante.cantidadLibrosPrestados(txt_CnombreEstudiante.getText()));
         }
     }//GEN-LAST:event_btn_buscarEstudianteActionPerformed
 

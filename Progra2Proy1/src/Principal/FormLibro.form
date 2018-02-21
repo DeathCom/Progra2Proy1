@@ -214,9 +214,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_CnombreLibro">
-              <Properties>
-                <Property name="editable" type="boolean" value="false"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btn_buscarLibro">
               <Properties>
@@ -608,9 +605,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_CnombreAutor">
-              <Properties>
-                <Property name="editable" type="boolean" value="false"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_CapellidoAutor">
               <Properties>
