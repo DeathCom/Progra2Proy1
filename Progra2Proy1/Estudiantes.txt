@@ -1,2 +1,3 @@
-Segio,perez,marcos.perez,22266611,Desamparados,303030,Ing. Sistemas,SI
+Segio,perez,Segio.perez@gmail.com,22266611,Desamparados,303030,Ing. Sistemas,SI
 Emanuel,lopez,dsafds,fdsfsddsf,fdsfsda,affdsa,afdsfds,NO
+Julio,Marcel,JulioMarcel@hotmail.com,85496325,Monte Verde,89807-34234,Matematicas,SI

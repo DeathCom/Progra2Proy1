@@ -1,2 +1,2 @@
-﻿segio,Detectives Salvajes,3
-Marcos,Plata quemada,2
+﻿Marcos,Plata quemada,2
+Julio,﻿Pantalones Cortos,3

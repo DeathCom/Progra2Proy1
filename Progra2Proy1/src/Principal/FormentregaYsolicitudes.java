@@ -19,21 +19,23 @@ import javax.swing.JOptionPane;
 public class FormentregaYsolicitudes extends javax.swing.JFrame {
     MasterClass datos = new MasterClass();
     DataSolicitudes data = new DataSolicitudes(); 
-    
-        
+       
     public void imprimir(Estudiante arg){
+        txt_Nombre.setText(arg.getNombre());
         txt_Apellido.setText(arg.getApellido());
         txt_Email.setText(arg.getDireccionCorreo());
         txt_Telefono.setText(arg.getTelefono());
         txt_Cede.setText(arg.getSede());
     }
     public void imprimir(Funcionario arg){
+        txt_Nombre.setText(arg.getNombre());
         txt_Apellido.setText(arg.getApellido());
         txt_Email.setText(arg.getDireccionCorreo());
         txt_Telefono.setText(arg.getTelefono());
         txt_Cede.setText(arg.getSede());
     }
     public void imprimir(Profesor arg){
+        txt_Nombre.setText(arg.getNombre());
         txt_Apellido.setText(arg.getApellido());
         txt_Email.setText(arg.getDireccionCorreo());
         txt_Telefono.setText(arg.getTelefono());
@@ -110,7 +112,8 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
         cantidad = new javax.swing.JTextField();
         btn_botonBuscarlibroSiguiente1 = new javax.swing.JButton();
         btn_botonBuscarlibroAnterior1 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btn_limpiar = new javax.swing.JButton();
+        btn_botonBuscarPersona = new javax.swing.JButton();
         btn_atras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -220,10 +223,17 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Limpiar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_limpiar.setText("Limpiar");
+        btn_limpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_limpiarActionPerformed(evt);
+            }
+        });
+
+        btn_botonBuscarPersona.setText(">");
+        btn_botonBuscarPersona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_botonBuscarPersonaActionPerformed(evt);
             }
         });
 
@@ -294,7 +304,10 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
                                         .addComponent(jLabel4)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(txt_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(btn_buscarSolicitarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(btn_botonBuscarPersona)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btn_buscarSolicitarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -343,7 +356,7 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_botonBuscarlibroSiguiente1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(btn_limpiar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -390,7 +403,8 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btn_buscarSolicitarLibro)
-                        .addComponent(jLabel8))
+                        .addComponent(jLabel8)
+                        .addComponent(btn_botonBuscarPersona))
                     .addComponent(txt_CantidadLibros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -418,7 +432,7 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_botonBuscarlibroSiguiente1)
                     .addComponent(btn_botonBuscarlibroAnterior1)
-                    .addComponent(jButton1))
+                    .addComponent(btn_limpiar))
                 .addGap(21, 21, 21))
         );
 
@@ -465,7 +479,12 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
         }else{
            imprimir(data.anterior());
-           txt_librosAsignadosP.setText(cantidad.getText()); 
+           if(libro.getText().equalsIgnoreCase(txt_TituloLibro.getText())){
+                
+                txt_librosAsignadosP.setText(cantidad.getText());
+            }else{
+                txt_librosAsignadosP.setText("");
+            }
         }
     }//GEN-LAST:event_btn_botonBuscarlibroAnterior1ActionPerformed
 
@@ -473,8 +492,12 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
         if(data.primeroR()==null){
             JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
         }else{
-           imprimir(data.siguente());
-           txt_librosAsignadosP.setText(cantidad.getText());
+            imprimir(data.siguente());
+            if(libro.getText().equalsIgnoreCase(txt_TituloLibro.getText())){
+                txt_librosAsignadosP.setText(cantidad.getText());
+            }else{
+                txt_librosAsignadosP.setText("");
+            }        
         } 
     }//GEN-LAST:event_btn_botonBuscarlibroSiguiente1ActionPerformed
 
@@ -483,7 +506,7 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
         }else{
             imprimir(datos.siguenteL());
-            imprimir(data.siguenteR());
+            imprimir(data.siguenteR());        
         }
     }//GEN-LAST:event_btn_botonBuscarlibroSiguienteActionPerformed
 
@@ -588,20 +611,19 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
                 }
 
             }
-        
         }
-         //limpiarL();
-        FormPrincipal selcam = new FormPrincipal();
-        selcam.setVisible(true);
-        this.dispose();
+        //limpiarL();
+        //FormPrincipal selcam = new FormPrincipal();
+        //selcam.setVisible(true);
+        //this.dispose();
     }//GEN-LAST:event_btn_enviarSolicitudActionPerformed
 
     private void BuscarlibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarlibroActionPerformed
         if(datos.primeroL()==null || data.primeroR()==null){
             JOptionPane.showMessageDialog(rootPane, "No hay datos a Mostrar");
         }else{
-           imprimir(datos.buscarL(txt_TituloLibro.getText()));
             imprimir(data.buscarR(txt_TituloLibro.getText()));
+            imprimir(datos.buscarL(txt_TituloLibro.getText()));
         }
     }//GEN-LAST:event_BuscarlibroActionPerformed
 
@@ -617,6 +639,11 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
             }else if(TipoPersona.equalsIgnoreCase("Profesor")){
                 imprimir(datos.buscarP(txt_Nombre.getText()));
             }
+           imprimir(data.buscar(txt_Nombre.getText()));
+           imprimir(data.buscarR(libro.getText()));
+           imprimir(datos.buscarL(libro.getText()));
+           txt_librosAsignadosP.setText(cantidad.getText());
+           //jj
         }
     }//GEN-LAST:event_btn_buscarSolicitarLibroActionPerformed
 
@@ -776,9 +803,25 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btn_CargarDatosActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btn_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpiarActionPerformed
+        limpiar();
+    }//GEN-LAST:event_btn_limpiarActionPerformed
+
+    private void btn_botonBuscarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_botonBuscarPersonaActionPerformed
+        String TipoPersona = txt_TipoPersona.getSelectedItem().toString();
+           
+        if(data.primeroR()==null){
+            JOptionPane.showMessageDialog(rootPane, "Primero Cargue los Datos");
+        }else{
+           if(TipoPersona.equalsIgnoreCase("Funcionario")){
+            imprimir(datos.siguenteF());
+            }else if(TipoPersona.equalsIgnoreCase("Estudiante")){
+                imprimir(datos.siguenteE());
+            }else if(TipoPersona.equalsIgnoreCase("Profesor")){
+                imprimir(datos.siguenteP());
+            } 
+        } 
+    }//GEN-LAST:event_btn_botonBuscarPersonaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -819,14 +862,15 @@ public class FormentregaYsolicitudes extends javax.swing.JFrame {
     private javax.swing.JButton Buscarlibro;
     private javax.swing.JButton btn_CargarDatos;
     private javax.swing.JButton btn_atras;
+    private javax.swing.JButton btn_botonBuscarPersona;
     private javax.swing.JButton btn_botonBuscarlibroAnterior;
     private javax.swing.JButton btn_botonBuscarlibroAnterior1;
     private javax.swing.JButton btn_botonBuscarlibroSiguiente;
     private javax.swing.JButton btn_botonBuscarlibroSiguiente1;
     private javax.swing.JButton btn_buscarSolicitarLibro;
     private javax.swing.JButton btn_enviarSolicitud;
+    private javax.swing.JButton btn_limpiar;
     private javax.swing.JTextField cantidad;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

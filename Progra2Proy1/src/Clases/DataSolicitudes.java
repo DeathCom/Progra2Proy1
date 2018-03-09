@@ -184,8 +184,8 @@ public class DataSolicitudes {
             if(obTmpReserva.getNombreLibro().equalsIgnoreCase(buscar)){
                 ob = obTmpReserva;
             }
-            obTmp=obTmp.getSiguente();
-        }while(obTmp != obInicial);
+            obTmpReserva=obTmpReserva.getSiguente();
+        }while(obTmpReserva != obInicialReserva);
         return ob;
     }
     

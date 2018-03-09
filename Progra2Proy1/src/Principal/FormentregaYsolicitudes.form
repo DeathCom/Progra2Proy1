@@ -144,7 +144,11 @@
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="txt_Telefono" min="-2" pref="118" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="btn_buscarSolicitarLibro" min="-2" pref="118" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="btn_botonBuscarPersona" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="btn_buscarSolicitarLibro" min="-2" pref="118" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -213,7 +217,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btn_botonBuscarlibroSiguiente1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_limpiar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -269,6 +273,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btn_buscarSolicitarLibro" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btn_botonBuscarPersona" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="txt_CantidadLibros" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -303,7 +308,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btn_botonBuscarlibroSiguiente1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_botonBuscarlibroAnterior1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_limpiar" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   </Group>
@@ -528,12 +533,20 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_botonBuscarlibroAnterior1ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="btn_limpiar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Limpiar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_limpiarActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btn_botonBuscarPersona">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&gt;"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_botonBuscarPersonaActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

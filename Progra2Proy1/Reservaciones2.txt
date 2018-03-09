@@ -1,3 +1,2 @@
-﻿Pantalones Cortos,10
-Detectives Salvajes,7
+﻿Pantalones Cortos,7
 Plata quemada,13
